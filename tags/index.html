@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>个人博客</title>
+  <title>标签 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -11,12 +11,13 @@
   
   <meta name="description" content="我就是我，是颜色不一样的烟花">
 <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://www.cheneyliu.com/index.html">
+<meta property="og:title" content="Tags">
+<meta property="og:url" content="http://www.cheneyliu.com/tags/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="我就是我，是颜色不一样的烟花">
+<meta property="og:updated_time" content="2017-01-11T18:24:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
+<meta name="twitter:title" content="Tags">
 <meta name="twitter:description" content="我就是我，是颜色不一样的烟花">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
@@ -41,178 +42,201 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
 
+  
+    <link rel="stylesheet" href="/css/archive.css" >
   
 
 </head>
 
 <body>
   
-    <header id="header">
-
-  
-    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
-    <script>
-        var imgUrls = "css/images/home-bg.jpg,css/images/sample.jpg,http://t.cn/RMbvEza".split(",");
-        var random = Math.floor((Math.random() * imgUrls.length ));
-        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-          document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
-        } else {
-          document.getElementById("intrologo").style.backgroundImage='url(/' + imgUrls[random] + ')';
-        }
-    </script>
-  
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
-
-        
-          <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">个人博客</a></h1>
-            <h3>我就是我，是颜色不一样的烟花</h3>
-            <h5>Cheney Liu</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-    <script>
-        var img = new Image();
-        var intrologodiv = document.getElementById("intrologo");
-        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
-        img.onload=function(){
-          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
-            intrologodiv.style.backgroundSize = "100% auto";
-          } else {
-            intrologodiv.style.backgroundSize = "auto 100%";
-          }
-        };
-    </script>
- 
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">首页</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
-        
-      </p>
-  </div>
-
-</header>
-  
   <div id="container">
     <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                 >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
       
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-javascript原型和原型链"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
+          <section id="main" style="float:none;"><div class="archives-wrap" style="margin: 0px;">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/07/29/javascript原型和原型链/">javascript原型和原型链</a>
-    </h1>
-  
+            <!-- 标签云 -->
+            <div class="archives-tags-wrap">
+                
+                    <blockquote>
+                    <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/web/" style="font-size: 14px;">web</a>
+                    </blockquote>
+                
+            </div>
 
-      </header>
-    
-    <div class="article-meta">
+            <!-- 标签云2 -->
+            <!-- 
+            <div id='tag_cloud' class="tags">
+                
+                    <a href="#javascript" title="javascript" rel="1">javascript</a>
+                
+                    <a href="#web" title="web" rel="1">web</a>
+                
+            </div> 
+            -->
+
+            <!-- 标签列表 -->
+
+            
+            <div class="archives-wrap">
+                <div class="archive-year-wrap" id="javascript">
+                    <h1 class="archive-tag">javascript</h1>
+                </div>
+                <div class="archives">
+                    
+                        <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       
-	<a href="/2015/07/29/javascript原型和原型链/" class="article-date">
+	<a href="/2015/07/29/javascript原型和原型链/" class="archive-article-date">
 	  <time datetime="2015-07-29T15:12:27.000Z" itemprop="datePublished">2015-07-29</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2015/07/29/javascript原型和原型链/">javascript原型和原型链</a>
+    </h1>
+  
 
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近几天，好些新同事来问原型，原型链啥的。本身作为菜鸟的我好像也没有好好整理过这个，这里写写自己的理解。</p>
-<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>大家都知道，JavaScript 不包含传统的类继承模型，而是使用 prototype 原型模型。代码实现大概是这样子的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Kimy = <span class="keyword">new</span> Student(<span class="string">"Kimy"</span>);</div><div class="line"></div><div class="line">Student.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"say"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Kimy.say();</div><div class="line"><span class="comment">//Kimysay</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
 </article>
+                        
+                    
+                </div>
+            </div>
+            
+            <div class="archives-wrap">
+                <div class="archive-year-wrap" id="web">
+                    <h1 class="archive-tag">web</h1>
+                </div>
+                <div class="archives">
+                    
+                        <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+	<a href="/2015/07/29/javascript原型和原型链/" class="archive-article-date">
+	  <time datetime="2015-07-29T15:12:27.000Z" itemprop="datePublished">2015-07-29</time>
+	</a>
 
-<!-- Table of Contents -->
-
+      
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2015/07/29/javascript原型和原型链/">javascript原型和原型链</a>
+    </h1>
   
 
+    </header>
+  </div>
+</article>
+                        
+                    
+                </div>
+            </div>
+            
 
-</section>
+
+        </div>
+    </div>
+</div></section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -300,8 +324,6 @@
 <script src="/js/script.js"></script>
 <script src="/js/bootstrap.js"></script>
 
-
-  <script src="/js/home.js"></script>
 
 
 
