@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript作用域链 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="javascript" />
+  
+  
+  
+  
+  <meta name="description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript作用域链">
+<meta property="og:url" content="http://www.cheneyliu.com/2015/08/02/javascript作用域链/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png">
+<meta property="og:updated_time" content="2017-02-07T13:58:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript作用域链">
+<meta name="twitter:description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+<meta name="twitter:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png">
+  
+    <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-javascript作用域链" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      javascript作用域链
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/02/javascript作用域链/" class="article-date">
+	  <time datetime="2015-08-02T15:30:01.000Z" itemprop="datePublished">2015-08-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。</p>
+<h2 id="执行环境-Execution-Context"><a href="#执行环境-Execution-Context" class="headerlink" title="执行环境(Execution Context)"></a>执行环境(Execution Context)</h2><p>所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。<br>代码分为三种类型：<br>1.Global Code<br>2.Eval Code<br>3.Function Code<br>这是一个EC结构<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png" alt=""><br>可以理解如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">activeExecutionContext = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;, <span class="comment">// or AO</span></div><div class="line">    <span class="keyword">this</span>: thisValue,</div><div class="line">    <span class="attr">Scope</span>: [ <span class="comment">// Scope chain</span></div><div class="line">      <span class="comment">// 所有变量对象的列表</span></div><div class="line">      <span class="comment">// for identifiers lookup</span></div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>当一段程序开始时，会先进入到全局执行上下文环境。此时如果调用了某些函数，就会进入他们的上下文环境，执行完之后再退出该上下文环境。<br>假设激活了一个EC1的上下文，图解如下<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png" alt=""></p>
+<h2 id="变量对象-VO-和活动对象-AO"><a href="#变量对象-VO-和活动对象-AO" class="headerlink" title="变量对象(VO)和活动对象(AO)"></a>变量对象(VO)和活动对象(AO)</h2><p>变量对象是一个与上下文相关的数据作用域，用于存储被定义在上下文中的变量和函数声明（不包括函数表达式）。在global全局上下文中，变量对象即使全局对象自身。<br>copy一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// // 函数声明</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// 函数表达式</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">  <span class="keyword">this</span>.foo == foo, <span class="comment">// true</span></div><div class="line">  <span class="built_in">window</span>.bar == bar <span class="comment">// true</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(baz); <span class="comment">// 引用错误，baz没有被定义</span></div></pre></td></tr></table></figure></p>
+<p>全局上下文中的变量对象(VO)会有如下属性：<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png" alt=""><br>在一个函数的上下文中，变量对象被表示为活动对象<br>活动对象在进入上下文中初始化成了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AO = &#123;</div><div class="line">  <span class="attr">arguments</span>: &lt;ArgO&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>arguments属性值就是Arguments对象<br>之后就是存储当前上下文的变量与函数声明</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个 对象列表，用于检索上下文中出现的 标识符（变量名称、函数声明，普通参数）。<br>在函数创建的时候，当前的作用域链被存储到了函数的[[scope]]属性中。当进入上下文创建AO/VO之后，上下文(EC)的Scope属性作了如下处理：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Scope = AO|VO + [[Scope]]</div></pre></td></tr></table></figure></p>
+<p>知识点就是这些，现在我们来一段代码，把过程给串联起来。在这之前，我们要知道另一个知识，就是执行上下文的代码被分成两个基本的阶段来处理<br>1.进入执行上下文<br>2.执行代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">m</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> z = <span class="number">30</span>;</div><div class="line">    alert(x +  y + z + m);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">10</span>); <span class="comment">// 60</span></div></pre></td></tr></table></figure></p>
+<p>首先先进入全局上下文环境<br>全局上下文的变量对象(代码执行时，x才被赋值)是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>globalContext.Scope = globalContext.VO;<br>当”foo”创建时，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.Scope</div><div class="line">];</div><div class="line"><span class="comment">//也就是</span></div><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>在”foo”激活时，进入了foo的上下文，foo上下文中的活动对象(代码执行时，y才被赋值)是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">　<span class="attr">arguments</span>:&lt;Arg&gt;,</div><div class="line">　m: 10,</div><div class="line">　y: 20,</div><div class="line">  bar: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>此时foo上下文中的作用域链为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fooContext.Scope = fooContext.AO + foo.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line">fooContext.Scope = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>函数”bar”创建时，其[[scope]]为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bar.[[Scope]] = fooContext.Scope;</div><div class="line"><span class="comment">//也就是</span></div><div class="line">bar.[[Scope]] = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>同理，bar就不写了。最后bar上下文的作用域链为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">barContext.Scope = barContext.AO + bar.[[Scope]]</div><div class="line">barContext.Scope = [</div><div class="line">  barContext.AO,</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>在alert执行时，作用域链中查找标示符如下<br>查找 x,  barContext.AO 无 —-&gt; fooContext.AO 无 —-&gt;globalContext.VO 有<br>查找 Z,  barContext.AO 有<br>其他的就自己看了。</p>
+<h2 id="局部变量、全局变量"><a href="#局部变量、全局变量" class="headerlink" title="局部变量、全局变量"></a>局部变量、全局变量</h2><p>在作用域链中查找标识符是需要花时间的，所以就明白为什么需要尽量使用局部变量(将频繁使用的全局变量缓存下来)，全局变量尽量少用了。并且with会破坏作用域链，它会将指定的VO/AO加入到作用域链的顶端，这样在标识符查找时，需要查找更长的作用域链。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>理解了上面的概念，闭包就很容易理解了。闭包是代码块和创建该代码块的上下文中数据的结合。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2015/08/02/javascript作用域链/" data-title="javascript作用域链" data-url="http://www.cheneyliu.com/2015/08/02/javascript作用域链/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"放牛娃也有春天"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/07/29/javascript原型和原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">javascript原型和原型链</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行环境-Execution-Context"><span class="toc-number">1.</span> <span class="toc-text">执行环境(Execution Context)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量对象-VO-和活动对象-AO"><span class="toc-number">2.</span> <span class="toc-text">变量对象(VO)和活动对象(AO)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-number">3.</span> <span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局部变量、全局变量"><span class="toc-number">4.</span> <span class="toc-text">局部变量、全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">5.</span> <span class="toc-text">闭包</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 个人博客 All Rights Reserved.</p>
+	      <p id="copyRightCn">Cheney Liu 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            个人博客
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Cheney Liu All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
