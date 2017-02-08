@@ -3,26 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>settimeout与setinterval | 个人博客</title>
+  <title>个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="javascript" />
   
   
   
-  
-  <meta name="description" content="最新写代码中时，看到项目中有人用到了 setTimeout(fun,0)，于是想总结一下。个人理解，如果有错误的地方还请指出。THX要想理解JavaScript的定时器是如何工作的，先要明白 JavaScript 引擎是单线程的。这个可以理解为 javascript 引擎是一个服务员，它有一个服务的队列，所有的界面元素事件,定时触发器回调，异步请求回调都要在这个任务队列里排队，等待处理。所有任务都">
-<meta property="og:type" content="article">
-<meta property="og:title" content="setTimeout与setInterval">
-<meta property="og:url" content="http://www.cheneyliu.com/2015/06/22/setTimeout与setInterval/index.html">
+  <meta name="description" content="google-site-verification: google8bd6bcf3c5b1608b.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://www.cheneyliu.com/google8bd6bcf3c5b1608b.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="最新写代码中时，看到项目中有人用到了 setTimeout(fun,0)，于是想总结一下。个人理解，如果有错误的地方还请指出。THX要想理解JavaScript的定时器是如何工作的，先要明白 JavaScript 引擎是单线程的。这个可以理解为 javascript 引擎是一个服务员，它有一个服务的队列，所有的界面元素事件,定时触发器回调，异步请求回调都要在这个任务队列里排队，等待处理。所有任务都">
-<meta property="og:image" content="http://images0.cnblogs.com/blog2015/695999/201506/222319275801274.jpg">
-<meta property="og:updated_time" content="2017-02-08T07:13:18.000Z">
+<meta property="og:description" content="google-site-verification: google8bd6bcf3c5b1608b.html">
+<meta property="og:updated_time" content="2017-02-08T12:42:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="setTimeout与setInterval">
-<meta name="twitter:description" content="最新写代码中时，看到项目中有人用到了 setTimeout(fun,0)，于是想总结一下。个人理解，如果有错误的地方还请指出。THX要想理解JavaScript的定时器是如何工作的，先要明白 JavaScript 引擎是单线程的。这个可以理解为 javascript 引擎是一个服务员，它有一个服务的队列，所有的界面元素事件,定时触发器回调，异步请求回调都要在这个任务队列里排队，等待处理。所有任务都">
-<meta name="twitter:image" content="http://images0.cnblogs.com/blog2015/695999/201506/222319275801274.jpg">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="google-site-verification: google8bd6bcf3c5b1608b.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -54,6 +50,8 @@
   
 
   
+    <link rel="stylesheet" href="/css/archive.css" >
+  
 
 </head>
 
@@ -78,7 +76,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -147,38 +145,21 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-setTimeout与setInterval" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="page-undefined"  class="article article-type-page" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      setTimeout与setInterval
-    </h1>
-  
-
-      </header>
-    
     <div class="article-meta">
       
-	<a href="/2015/06/22/setTimeout与setInterval/" class="article-date">
-	  <time datetime="2015-06-22T15:23:33.000Z" itemprop="datePublished">2015-06-22</time>
+	<a href="/google8bd6bcf3c5b1608b.html" class="article-date">
+	  <time datetime="2017-02-08T12:42:12.000Z" itemprop="datePublished">2017-02-08</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/web/">web</a>
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最新写代码中时，看到项目中有人用到了 setTimeout(fun,0)，于是想总结一下。个人理解，如果有错误的地方还请指出。THX<br>要想理解JavaScript的定时器是如何工作的，先要明白 JavaScript 引擎是单线程的。这个可以理解为 javascript 引擎是一个服务员，它有一个服务的队列，所有的界面元素事件,定时触发器回调，异步请求回调都要在这个任务队列里排队，等待处理。所有任务都是一个最小单位，不会中断处理。这样就可以理解 setTimeout(fun,0) 了，它并不是代表立即执行该代码，除非任务队列为空(事实上，各个浏览器在实际执行这个的时候也是有差异了，比较新的浏览器实际可能是在4ms；老版本的可能更长一点，16ms也是可能的)。而 setTimeout(fun,time) 的意思就是多少时间后将 fun 回调加到这个任务队列中，也就是至少需要time时间才会执行fun。<br>举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> tem = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">  tem += i;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
-<p>显示结果为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure></p>
-<p>就是说，在执行 setTimeout 时，将 function 回调加入了任务队列，但并没有立即执行，因为js引擎还在忙着处理当前的js，而只在这段代码段执行完才去任务列表里取新的任务，所以结果就是先显示 2 后显示 1。<br><a id="more"></a><br>setInterval(fun, time)方法是，每隔一定时间将fun添加到队列中，那么问题来，如果fun执行时间比 time 要长的时候怎么办？<br>看一段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> time = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> tem = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">99999999</span>; i++) &#123;</div><div class="line">    tem += i;</div><div class="line">  &#125;;</div><div class="line">  num ++;</div><div class="line">  <span class="built_in">console</span>.log(num);</div><div class="line">&#125;, <span class="number">100</span>);</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  clearInterval(time);</div><div class="line">&#125;, <span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
-<p>意思是每隔100ms执行一段代码，在1s中后清除这个定时器。但是结果呢？<br>显示结果为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure></p>
-<p>也就是说，事实上，并没有执行到那么多次数。也就是说某些间隔会被跳过，这也就存在多个代码执行的间隔可能会比预期的小。原来在将定时器代码加入队列的时候，如果该定时器的代码实例存在时，该次定时器代码会被跳过。<br>引用一张图片，就很好理解了。<br><img src="http://images0.cnblogs.com/blog2015/695999/201506/222319275801274.jpg" alt=""></p>
-
+        google-site-verification: google8bd6bcf3c5b1608b.html
       
     </div>
     <footer class="article-footer">
@@ -187,7 +168,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2015/06/22/setTimeout与setInterval/" data-title="setTimeout与setInterval" data-url="http://www.cheneyliu.com/2015/06/22/setTimeout与setInterval/"></div>
+	 <div class="ds-thread" data-thread-key="/google8bd6bcf3c5b1608b.html" data-title="" data-url="http://www.cheneyliu.com/google8bd6bcf3c5b1608b.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -208,39 +189,14 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
     </footer>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2015/07/29/javascript原型和原型链/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          javascript原型和原型链
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
   
 </article>
 
 <!-- Table of Contents -->
-
-  <aside id="sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
-    <ol class="toc">无</ol>
-    
-    </div>
-  </aside>
 
 </section>
         
@@ -334,8 +290,6 @@
 
 
 
-
-  <script src="/js/dialog.js"></script>
 
 
 
