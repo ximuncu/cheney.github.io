@@ -6,7 +6,7 @@
   <title>javascript作用域链 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="javascript" />
+    <meta name="keywords" content="javascript" />
   
   
   
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png">
-<meta property="og:updated_time" content="2017-02-07T14:18:02.000Z">
+<meta property="og:updated_time" content="2017-02-08T07:16:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript作用域链">
 <meta name="twitter:description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
@@ -180,6 +180,7 @@
       
         <p>最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。</p>
 <h2 id="执行环境-Execution-Context"><a href="#执行环境-Execution-Context" class="headerlink" title="执行环境(Execution Context)"></a>执行环境(Execution Context)</h2><p>所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。<br>代码分为三种类型：<br>1.Global Code<br>2.Eval Code<br>3.Function Code<br>这是一个EC结构<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png" alt=""><br>可以理解如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">activeExecutionContext = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;, <span class="comment">// or AO</span></div><div class="line">    <span class="keyword">this</span>: thisValue,</div><div class="line">    <span class="attr">Scope</span>: [ <span class="comment">// Scope chain</span></div><div class="line">      <span class="comment">// 所有变量对象的列表</span></div><div class="line">      <span class="comment">// for identifiers lookup</span></div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>当一段程序开始时，会先进入到全局执行上下文环境。此时如果调用了某些函数，就会进入他们的上下文环境，执行完之后再退出该上下文环境。<br>假设激活了一个EC1的上下文，图解如下<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png" alt=""></p>
 <h2 id="变量对象-VO-和活动对象-AO"><a href="#变量对象-VO-和活动对象-AO" class="headerlink" title="变量对象(VO)和活动对象(AO)"></a>变量对象(VO)和活动对象(AO)</h2><p>变量对象是一个与上下文相关的数据作用域，用于存储被定义在上下文中的变量和函数声明（不包括函数表达式）。在global全局上下文中，变量对象即使全局对象自身。<br>copy一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// // 函数声明</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// 函数表达式</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">  <span class="keyword">this</span>.foo == foo, <span class="comment">// true</span></div><div class="line">  <span class="built_in">window</span>.bar == bar <span class="comment">// true</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(baz); <span class="comment">// 引用错误，baz没有被定义</span></div></pre></td></tr></table></figure></p>
 <p>全局上下文中的变量对象(VO)会有如下属性：<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png" alt=""><br>在一个函数的上下文中，变量对象被表示为活动对象<br>活动对象在进入上下文中初始化成了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AO = &#123;</div><div class="line">  <span class="attr">arguments</span>: &lt;ArgO&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
@@ -230,6 +231,7 @@
     
     </div>
   </aside>
+
 </section>
         
       </div>
