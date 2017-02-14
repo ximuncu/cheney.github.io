@@ -175,20 +175,12 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/08/12/==和===/">高效操作DOM</a>
+      <a class="article-title" href="/2015/08/12/==和===/">==和===</a>
     </h1>
   
 
 
         
-         <div class="busuanzi_container_page_pv">
-           <span class="head-plus">
-           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-           </span>
-           <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/08/12/==和===/"><i class="fa fa-spinner fa-spin"></i></span>条评论
-           </span>
-         </div>
          
 
       </header>
@@ -205,14 +197,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Object-的-valueOf-方法"><a href="#Object-的-valueOf-方法" class="headerlink" title="Object 的 valueOf 方法"></a>Object 的 valueOf 方法</h2><p>valueOf()函数返回指定对象的原始值。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png" alt=""></p>
-<h2 id="Object-的-toString-方法"><a href="#Object-的-toString-方法" class="headerlink" title="Object 的 toString() 方法"></a>Object 的 toString() 方法</h2><p>toString()函数的返回值为String类型。返回当前对象的字符串形式。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png" alt=""></p>
-<h2 id="“-”-与-“-”"><a href="#“-”-与-“-”" class="headerlink" title="“==” 与 “===”"></a>“==” 与 “===”</h2><p>“===” 和 “==” 都是用来比较两个值是否相等。前者称为严格相等运算符，判断是否严格相等；后者称为相等运算符，判断是否相等，这个是允许类型转换的。</p>
-<h3 id="“-”-这个判断比较简单"><a href="#“-”-这个判断比较简单" class="headerlink" title="“===” 这个判断比较简单"></a>“===” 这个判断比较简单</h3><p>1.如果数据类型不一样则不相等<br>2.如果是引用类型，除非指向同一个数组、对象这样的，那么相等，其他都不相等<br>3.其他比较就是常规的比较了</p>
-<h3 id="“-”-这个比较复杂"><a href="#“-”-这个比较复杂" class="headerlink" title="“==” 这个比较复杂"></a>“==” 这个比较复杂</h3><p>如果都是引用类型，或者同是基本类型，同”===”<br>null 和 undefined 相等<br>1.一个是数字，另一个字符串，字符串转换为数字后比较<br>2.含有一个boolean值，先将其转换为数字后比较<br>3.其中一个值是对象，将其转换为原始值进行比较(字符串或者数字，根据情况来转换)。</p>
-<h2 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h2><p>对象转换为boolean比较简单，都是为true<br>对象转换为数字，先调用valueOf方法，如果为原始值，转换为数字（需要的话）；不成功则调用toString()方法，如果为原始值，转换为数字（需要的话），也不成功就抛出异常<br>对象转换为字符串，同样的，先调用toString()方法，如果为原始值，转换为字符串（需要的话）；不成功则调用valueOf()方法，，如果为原始值，转换为字符串（需要的话），也不成功就抛出异常<br>转换的时候到底转换为数字还是字符串，这个看情况需要。<br>举几个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() + <span class="number">1</span></div><div class="line"><span class="comment">//"Tue Aug 11 2015 23:35:47 GMT+0800 (中国标准时间)1"</span></div><div class="line"><span class="comment">//+ 期望前面的值是一个字符串，调用的Date的toString()方法</span></div><div class="line"></div><div class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line"><span class="comment">//1439307361984</span></div><div class="line"><span class="comment">//+ 期望后面的值是一个数字，调用的Date的valueOf()方法处理</span></div></pre></td></tr></table></figure></p>
-<p>举几个”==”的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[] == ![]</div><div class="line"><span class="comment">//第一步：![] 转换为boolean值为false</span></div><div class="line"><span class="comment">//第二步：false  转换为数字为 0</span></div><div class="line"><span class="comment">//第三步：[] 转换为数字为 0</span></div><div class="line"><span class="comment">//判断为true ,第二步和第三步谁先都没有关系</span></div><div class="line"></div><div class="line"><span class="string">"1"</span> == <span class="literal">true</span></div><div class="line"><span class="comment">// true 转换为 1</span></div><div class="line"><span class="comment">// "1" 转换为 1</span></div><div class="line"></div><div class="line"><span class="string">"1,2"</span> == [<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">// [1,2] 转换为字符串 "1,2"</span></div></pre></td></tr></table></figure></p>
-
+        <h2 id="Object-的-valueOf-方法"><a href="#Object-的-valueOf-方法" class="headerlink" title="Object 的 valueOf 方法"></a>Object 的 valueOf 方法</h2><p>valueOf()函数返回指定对象的原始值。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png" alt=""><br>
+        <!-- Object 的 valueOf ...... -->
+        <p class="article-more-link">
+          <a href="/2015/08/12/==和===/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
@@ -243,14 +232,6 @@
 
 
         
-         <div class="busuanzi_container_page_pv">
-           <span class="head-plus">
-           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-           </span>
-           <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/08/09/高效操作DOM/"><i class="fa fa-spinner fa-spin"></i></span>条评论
-           </span>
-         </div>
          
 
       </header>
@@ -267,11 +248,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="DOM树与Render树"><a href="#DOM树与Render树" class="headerlink" title="DOM树与Render树"></a>DOM树与Render树</h2><p>这个应该都是知道的。就是用户请求HTML下来后，浏览器渲染引擎的基本工作中两个概念。<br><img src="http://taligarsiel.com/Projects/flow.png?_=4716401" alt=""><br>copy一张图，流程大概就是：解析html构建DOM树，渲染树构建，渲染树布局，绘制渲染树。<br>这里要注意的一点是，DOM树和render树并不是简单的一一对应关系。render树中并不包含那些不需要渲染的节点。比方说head、title这样的；display：none也是不会有的；还有一些设置position:absolute，fixed，构造render树时会根据实际情况来构造。</p>
-<h2 id="重绘-redraw-和重排-reflow"><a href="#重绘-redraw-和重排-reflow" class="headerlink" title="重绘(redraw)和重排(reflow)"></a>重绘(redraw)和重排(reflow)</h2><p>从字面上就是能理解了，重绘就是重新绘制，重排就是重构render树。这两个都是负担很重的操作，比方说table tree中显示隐藏，浏览器需要重排，重绘，如果子节点比较多，有可能页面就卡死了（ie6、7这样的老古董很容易会这样）。所以这样的事情我们尽量少做，也就是写js的时候尽量少些这样类型的代码。<br>而重排一般都是下面这样的操作引起的（尽量少的使用）。<br>1.添加、删除可见的DOM元素(visibility:hidden也算，不要为为什么)<br>2.元素的位置改变<br>3.元素尺寸改变，也就是盒子模型中的属性改变<br>4.内容改变（文本加长了，图片尺寸改变）<br>5.浏览器窗格改变大小<br>6.获取某些属性（offset<strong>，scroll</strong>，client**）</p>
-<h2 id="最小化重绘与重排"><a href="#最小化重绘与重排" class="headerlink" title="最小化重绘与重排"></a>最小化重绘与重排</h2><p>1.合并css操作为一次操作<br>2.当要批量修改dom时，先将该元素中文档流中摘除，对其使用多重改变，最后将元素带回文档中。（设置display：none;使用DocumentFragment;clone一个节点）<br>3.在需要经常获取那些引起浏览器重排的属性值时，要缓存到变量。<br>4.将需要多次重排的元素（比方说动画），position属性设为absolute或fixed，使其脱离文档流，这样它的变化不会影响到其他元素。</p>
-<h2 id="DOM-真的很慢"><a href="#DOM-真的很慢" class="headerlink" title="DOM 真的很慢"></a>DOM 真的很慢</h2><p>如果把ECMAScript看做一个孤岛，DOM看做一个孤岛，DOM访问看成是过桥的话，每次DOM访问都是需要”过桥费”的。过的多，费用就越高，也就越消耗性能。所以尽量减少DOM的访问。比方缓存获取下来的DOM元素。</p>
-
+        <h2 id="DOM树与Render树"><a href="#DOM树与Render树" class="headerlink" title="DOM树与Render树"></a>DOM树与Render树</h2><p>这个应该都是知道的。就是用户请求HTML下来后，浏览器渲染引擎的基本工作中两个概念。<br><img src="http://taligarsiel.com/Projects/flow.png?_=4716401" alt=""><br>copy一张图，流程大概就是：解析html构建DOM树，渲染树构建，渲染树布局，绘制渲染树。<br>这里要注意的一点是，DOM树和render树并不是简单的一一对应关系。render树中并不包含那些不需要渲染的节点。比方说head、title这样的；display：none也是不会有的；还有一些设置position:absolute，fixed，构造render树时会根据实际情况来构造。<br>
+        <!-- DOM树与Render树这个应该都...... -->
+        <p class="article-more-link">
+          <a href="/2015/08/09/高效操作DOM/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
