@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>高效操作dom | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="javascript" />
+  
+  
+    <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
+  
+  
+    <meta name="baidu-site-verification" content="lzqdLiaeoa" />
+  
+  
+  <meta name="description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。
+Object 的 toString() 方法toString()函数的返回值为String类型。返回当前对象的字符串形式。JavaScript的许多内置对象都重写了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高效操作DOM">
+<meta property="og:url" content="http://www.cheneyliu.com/2015/08/12/==和===/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。
+Object 的 toString() 方法toString()函数的返回值为String类型。返回当前对象的字符串形式。JavaScript的许多内置对象都重写了">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png">
+<meta property="og:updated_time" content="2017-02-14T02:18:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高效操作DOM">
+<meta name="twitter:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。
+Object 的 toString() 方法toString()函数的返回值为String类型。返回当前对象的字符串形式。JavaScript的许多内置对象都重写了">
+<meta name="twitter:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png">
+  
+    <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-==和===" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      高效操作DOM
+    </h1>
+  
+
+
+        
+         <div class="busuanzi_container_page_pv">
+           <span class="head-plus">
+           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+           </span>
+           <span class="head-plus">
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/08/12/==和===/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           </span>
+         </div>
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/12/==和===/" class="article-date">
+	  <time datetime="2015-08-11T16:08:17.000Z" itemprop="datePublished">2015-08-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Object-的-valueOf-方法"><a href="#Object-的-valueOf-方法" class="headerlink" title="Object 的 valueOf 方法"></a>Object 的 valueOf 方法</h2><p>valueOf()函数返回指定对象的原始值。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png" alt=""></p>
+<h2 id="Object-的-toString-方法"><a href="#Object-的-toString-方法" class="headerlink" title="Object 的 toString() 方法"></a>Object 的 toString() 方法</h2><p>toString()函数的返回值为String类型。返回当前对象的字符串形式。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png" alt=""></p>
+<h2 id="“-”-与-“-”"><a href="#“-”-与-“-”" class="headerlink" title="“==” 与 “===”"></a>“==” 与 “===”</h2><p>“===” 和 “==” 都是用来比较两个值是否相等。前者称为严格相等运算符，判断是否严格相等；后者称为相等运算符，判断是否相等，这个是允许类型转换的。</p>
+<h3 id="“-”-这个判断比较简单"><a href="#“-”-这个判断比较简单" class="headerlink" title="“===” 这个判断比较简单"></a>“===” 这个判断比较简单</h3><p>1.如果数据类型不一样则不相等<br>2.如果是引用类型，除非指向同一个数组、对象这样的，那么相等，其他都不相等<br>3.其他比较就是常规的比较了</p>
+<h3 id="“-”-这个比较复杂"><a href="#“-”-这个比较复杂" class="headerlink" title="“==” 这个比较复杂"></a>“==” 这个比较复杂</h3><p>如果都是引用类型，或者同是基本类型，同”===”<br>null 和 undefined 相等<br>1.一个是数字，另一个字符串，字符串转换为数字后比较<br>2.含有一个boolean值，先将其转换为数字后比较<br>3.其中一个值是对象，将其转换为原始值进行比较(字符串或者数字，根据情况来转换)。</p>
+<h2 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h2><p>对象转换为boolean比较简单，都是为true<br>对象转换为数字，先调用valueOf方法，如果为原始值，转换为数字（需要的话）；不成功则调用toString()方法，如果为原始值，转换为数字（需要的话），也不成功就抛出异常<br>对象转换为字符串，同样的，先调用toString()方法，如果为原始值，转换为字符串（需要的话）；不成功则调用valueOf()方法，，如果为原始值，转换为字符串（需要的话），也不成功就抛出异常<br>转换的时候到底转换为数字还是字符串，这个看情况需要。<br>举几个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() + <span class="number">1</span></div><div class="line"><span class="comment">//"Tue Aug 11 2015 23:35:47 GMT+0800 (中国标准时间)1"</span></div><div class="line"><span class="comment">//+ 期望前面的值是一个字符串，调用的Date的toString()方法</span></div><div class="line"></div><div class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line"><span class="comment">//1439307361984</span></div><div class="line"><span class="comment">//+ 期望后面的值是一个数字，调用的Date的valueOf()方法处理</span></div></pre></td></tr></table></figure></p>
+<p>举几个”==”的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[] == ![]</div><div class="line"><span class="comment">//第一步：![] 转换为boolean值为false</span></div><div class="line"><span class="comment">//第二步：false  转换为数字为 0</span></div><div class="line"><span class="comment">//第三步：[] 转换为数字为 0</span></div><div class="line"><span class="comment">//判断为true ,第二步和第三步谁先都没有关系</span></div><div class="line"></div><div class="line"><span class="string">"1"</span> == <span class="literal">true</span></div><div class="line"><span class="comment">// true 转换为 1</span></div><div class="line"><span class="comment">// "1" 转换为 1</span></div><div class="line"></div><div class="line"><span class="string">"1,2"</span> == [<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">// [1,2] 转换为字符串 "1,2"</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2015/08/12/==和===/" data-title="高效操作DOM" data-url="http://www.cheneyliu.com/2015/08/12/==和===/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cheneyliu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/09/高效操作DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">高效操作DOM</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-的-valueOf-方法"><span class="toc-number">1.</span> <span class="toc-text">Object 的 valueOf 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-的-toString-方法"><span class="toc-number">2.</span> <span class="toc-text">Object 的 toString() 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-”-与-“-”"><span class="toc-number">3.</span> <span class="toc-text">“==” 与 “===”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”-这个判断比较简单"><span class="toc-number">3.1.</span> <span class="toc-text">“===” 这个判断比较简单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#“-”-这个比较复杂"><span class="toc-number">3.2.</span> <span class="toc-text">“==” 这个比较复杂</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象转换为原始值"><span class="toc-number">4.</span> <span class="toc-text">对象转换为原始值</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 个人博客 All Rights Reserved.</p>
+	      <p id="copyRightCn">Cheney Liu 保留所有权利</p>
+          
+          <p>
+              <span id="busuanzi_container_site_pv">
+               总访问量:<span id="busuanzi_value_site_pv"></span>次
+              </span>
+              <span id="busuanzi_container_site_uv">
+               访客数:<span id="busuanzi_value_site_uv"></span>人次
+              </span>
+          </p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-91641425-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            个人博客
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Cheney Liu All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1261220321&web_id=1261220321" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
