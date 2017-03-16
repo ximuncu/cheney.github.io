@@ -15,18 +15,21 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
+  <meta name="description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。
+JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="==和===">
 <meta property="og:url" content="http://www.cheneyliu.com/2015/08/12/==和===/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
+<meta property="og:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。
+JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
 <meta property="og:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png">
 <meta property="og:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png">
-<meta property="og:updated_time" content="2017-02-14T02:30:46.000Z">
+<meta property="og:updated_time" content="2017-03-16T13:27:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="==和===">
-<meta name="twitter:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
+<meta name="twitter:description" content="Object 的 valueOf 方法valueOf()函数返回指定对象的原始值。
+JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。">
 <meta name="twitter:image" content="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
@@ -190,12 +193,28 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Object-的-valueOf-方法"><a href="#Object-的-valueOf-方法" class="headerlink" title="Object 的 valueOf 方法"></a>Object 的 valueOf 方法</h2><p>valueOf()函数返回指定对象的原始值。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png" alt=""><br><a id="more"></a></p>
-<h2 id="Object-的-toString-方法"><a href="#Object-的-toString-方法" class="headerlink" title="Object 的 toString() 方法"></a>Object 的 toString() 方法</h2><p>toString()函数的返回值为String类型。返回当前对象的字符串形式。<br>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要<br><img src="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png" alt=""></p>
+        <h2 id="Object-的-valueOf-方法"><a href="#Object-的-valueOf-方法" class="headerlink" title="Object 的 valueOf 方法"></a>Object 的 valueOf 方法</h2><p>valueOf()函数返回指定对象的原始值。</p>
+<p>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/695999/201508/112236509896075.png" alt=""></p>
+<a id="more"></a>
+<h2 id="Object-的-toString-方法"><a href="#Object-的-toString-方法" class="headerlink" title="Object 的 toString() 方法"></a>Object 的 toString() 方法</h2><p>toString()函数的返回值为String类型。返回当前对象的字符串形式。</p>
+<p>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要</p>
+<p><img src="http://images0.cnblogs.com/blog2015/695999/201508/112242035673014.png" alt=""></p>
 <h2 id="“-”-与-“-”"><a href="#“-”-与-“-”" class="headerlink" title="“==” 与 “===”"></a>“==” 与 “===”</h2><p>“===” 和 “==” 都是用来比较两个值是否相等。前者称为严格相等运算符，判断是否严格相等；后者称为相等运算符，判断是否相等，这个是允许类型转换的。</p>
-<h3 id="“-”-这个判断比较简单"><a href="#“-”-这个判断比较简单" class="headerlink" title="“===” 这个判断比较简单"></a>“===” 这个判断比较简单</h3><p>1.如果数据类型不一样则不相等<br>2.如果是引用类型，除非指向同一个数组、对象这样的，那么相等，其他都不相等<br>3.其他比较就是常规的比较了</p>
-<h3 id="“-”-这个比较复杂"><a href="#“-”-这个比较复杂" class="headerlink" title="“==” 这个比较复杂"></a>“==” 这个比较复杂</h3><p>如果都是引用类型，或者同是基本类型，同”===”<br>null 和 undefined 相等<br>1.一个是数字，另一个字符串，字符串转换为数字后比较<br>2.含有一个boolean值，先将其转换为数字后比较<br>3.其中一个值是对象，将其转换为原始值进行比较(字符串或者数字，根据情况来转换)。</p>
-<h2 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h2><p>对象转换为boolean比较简单，都是为true<br>对象转换为数字，先调用valueOf方法，如果为原始值，转换为数字（需要的话）；不成功则调用toString()方法，如果为原始值，转换为数字（需要的话），也不成功就抛出异常<br>对象转换为字符串，同样的，先调用toString()方法，如果为原始值，转换为字符串（需要的话）；不成功则调用valueOf()方法，，如果为原始值，转换为字符串（需要的话），也不成功就抛出异常<br>转换的时候到底转换为数字还是字符串，这个看情况需要。<br>举几个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() + <span class="number">1</span></div><div class="line"><span class="comment">//"Tue Aug 11 2015 23:35:47 GMT+0800 (中国标准时间)1"</span></div><div class="line"><span class="comment">//+ 期望前面的值是一个字符串，调用的Date的toString()方法</span></div><div class="line"></div><div class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line"><span class="comment">//1439307361984</span></div><div class="line"><span class="comment">//+ 期望后面的值是一个数字，调用的Date的valueOf()方法处理</span></div></pre></td></tr></table></figure></p>
+<h3 id="“-”-这个判断比较简单"><a href="#“-”-这个判断比较简单" class="headerlink" title="“===” 这个判断比较简单"></a>“===” 这个判断比较简单</h3><p>1.如果数据类型不一样则不相等</p>
+<p>2.如果是引用类型，除非指向同一个数组、对象这样的，那么相等，其他都不相等</p>
+<p>3.其他比较就是常规的比较了</p>
+<h3 id="“-”-这个比较复杂"><a href="#“-”-这个比较复杂" class="headerlink" title="“==” 这个比较复杂"></a>“==” 这个比较复杂</h3><p>如果都是引用类型，或者同是基本类型，同”===”</p>
+<p>null 和 undefined 相等</p>
+<p>1.一个是数字，另一个字符串，字符串转换为数字后比较</p>
+<p>2.含有一个boolean值，先将其转换为数字后比较</p>
+<p>3.其中一个值是对象，将其转换为原始值进行比较(字符串或者数字，根据情况来转换)。</p>
+<h2 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h2><p>对象转换为boolean比较简单，都是为true</p>
+<p>对象转换为数字，先调用valueOf方法，如果为原始值，转换为数字（需要的话）；不成功则调用toString()方法，如果为原始值，转换为数字（需要的话），也不成功就抛出异常</p>
+<p>对象转换为字符串，同样的，先调用toString()方法，如果为原始值，转换为字符串（需要的话）；不成功则调用valueOf()方法，，如果为原始值，转换为字符串（需要的话），也不成功就抛出异常</p>
+<p>转换的时候到底转换为数字还是字符串，这个看情况需要。</p>
+<p>举几个例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Date</span>() + <span class="number">1</span></div><div class="line"><span class="comment">//"Tue Aug 11 2015 23:35:47 GMT+0800 (中国标准时间)1"</span></div><div class="line"><span class="comment">//+ 期望前面的值是一个字符串，调用的Date的toString()方法</span></div><div class="line"></div><div class="line">+<span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line"><span class="comment">//1439307361984</span></div><div class="line"><span class="comment">//+ 期望后面的值是一个数字，调用的Date的valueOf()方法处理</span></div></pre></td></tr></table></figure>
 <p>举几个”==”的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[] == ![]</div><div class="line"><span class="comment">//第一步：![] 转换为boolean值为false</span></div><div class="line"><span class="comment">//第二步：false  转换为数字为 0</span></div><div class="line"><span class="comment">//第三步：[] 转换为数字为 0</span></div><div class="line"><span class="comment">//判断为true ,第二步和第三步谁先都没有关系</span></div><div class="line"></div><div class="line"><span class="string">"1"</span> == <span class="literal">true</span></div><div class="line"><span class="comment">// true 转换为 1</span></div><div class="line"><span class="comment">// "1" 转换为 1</span></div><div class="line"></div><div class="line"><span class="string">"1,2"</span> == [<span class="number">1</span>,<span class="number">2</span>]</div><div class="line"><span class="comment">// [1,2] 转换为字符串 "1,2"</span></div></pre></td></tr></table></figure></p>
 
       

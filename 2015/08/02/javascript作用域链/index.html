@@ -16,21 +16,39 @@
   
   
   <meta name="description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
-执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。
+代码分为三种类型：
+1.Global Code2.Eval Code3.Function Code
+这是一个EC结构
+
+可以理解如下：
+12345678activeEx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript作用域链">
 <meta property="og:url" content="http://www.cheneyliu.com/2015/08/02/javascript作用域链/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
-执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。
+代码分为三种类型：
+1.Global Code2.Eval Code3.Function Code
+这是一个EC结构
+
+可以理解如下：
+12345678activeEx">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png">
-<meta property="og:updated_time" content="2017-02-08T07:16:03.000Z">
+<meta property="og:updated_time" content="2017-03-16T11:19:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript作用域链">
 <meta name="twitter:description" content="最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。
-执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。代码分为三种类型：1.Global Code2.Eval Code3.Function Code这是一个EC结构可以理解如下：12345678activeExecutio">
+执行环境(Execution Context)所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。
+代码分为三种类型：
+1.Global Code2.Eval Code3.Function Code
+这是一个EC结构
+
+可以理解如下：
+12345678activeEx">
 <meta name="twitter:image" content="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
@@ -195,21 +213,49 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。</p>
-<h2 id="执行环境-Execution-Context"><a href="#执行环境-Execution-Context" class="headerlink" title="执行环境(Execution Context)"></a>执行环境(Execution Context)</h2><p>所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。<br>代码分为三种类型：<br>1.Global Code<br>2.Eval Code<br>3.Function Code<br>这是一个EC结构<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png" alt=""><br>可以理解如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">activeExecutionContext = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;, <span class="comment">// or AO</span></div><div class="line">    <span class="keyword">this</span>: thisValue,</div><div class="line">    <span class="attr">Scope</span>: [ <span class="comment">// Scope chain</span></div><div class="line">      <span class="comment">// 所有变量对象的列表</span></div><div class="line">      <span class="comment">// for identifiers lookup</span></div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="执行环境-Execution-Context"><a href="#执行环境-Execution-Context" class="headerlink" title="执行环境(Execution Context)"></a>执行环境(Execution Context)</h2><p>所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。</p>
+<p>代码分为三种类型：</p>
+<p>1.Global Code<br>2.Eval Code<br>3.Function Code</p>
+<p>这是一个EC结构</p>
+<p><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png" alt=""></p>
+<p>可以理解如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">activeExecutionContext = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;, <span class="comment">// or AO</span></div><div class="line">    <span class="keyword">this</span>: thisValue,</div><div class="line">    <span class="attr">Scope</span>: [ <span class="comment">// Scope chain</span></div><div class="line">      <span class="comment">// 所有变量对象的列表</span></div><div class="line">      <span class="comment">// for identifiers lookup</span></div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>当一段程序开始时，会先进入到全局执行上下文环境。此时如果调用了某些函数，就会进入他们的上下文环境，执行完之后再退出该上下文环境。<br>假设激活了一个EC1的上下文，图解如下<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png" alt=""></p>
-<h2 id="变量对象-VO-和活动对象-AO"><a href="#变量对象-VO-和活动对象-AO" class="headerlink" title="变量对象(VO)和活动对象(AO)"></a>变量对象(VO)和活动对象(AO)</h2><p>变量对象是一个与上下文相关的数据作用域，用于存储被定义在上下文中的变量和函数声明（不包括函数表达式）。在global全局上下文中，变量对象即使全局对象自身。<br>copy一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// // 函数声明</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// 函数表达式</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">  <span class="keyword">this</span>.foo == foo, <span class="comment">// true</span></div><div class="line">  <span class="built_in">window</span>.bar == bar <span class="comment">// true</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(baz); <span class="comment">// 引用错误，baz没有被定义</span></div></pre></td></tr></table></figure></p>
-<p>全局上下文中的变量对象(VO)会有如下属性：<br><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png" alt=""><br>在一个函数的上下文中，变量对象被表示为活动对象<br>活动对象在进入上下文中初始化成了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AO = &#123;</div><div class="line">  <span class="attr">arguments</span>: &lt;ArgO&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>arguments属性值就是Arguments对象<br>之后就是存储当前上下文的变量与函数声明</p>
-<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个 对象列表，用于检索上下文中出现的 标识符（变量名称、函数声明，普通参数）。<br>在函数创建的时候，当前的作用域链被存储到了函数的[[scope]]属性中。当进入上下文创建AO/VO之后，上下文(EC)的Scope属性作了如下处理：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Scope = AO|VO + [[Scope]]</div></pre></td></tr></table></figure></p>
-<p>知识点就是这些，现在我们来一段代码，把过程给串联起来。在这之前，我们要知道另一个知识，就是执行上下文的代码被分成两个基本的阶段来处理<br>1.进入执行上下文<br>2.执行代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">m</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> z = <span class="number">30</span>;</div><div class="line">    alert(x +  y + z + m);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">10</span>); <span class="comment">// 60</span></div></pre></td></tr></table></figure></p>
-<p>首先先进入全局上下文环境<br>全局上下文的变量对象(代码执行时，x才被赋值)是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>globalContext.Scope = globalContext.VO;<br>当”foo”创建时，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.Scope</div><div class="line">];</div><div class="line"><span class="comment">//也就是</span></div><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>在”foo”激活时，进入了foo的上下文，foo上下文中的活动对象(代码执行时，y才被赋值)是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">　<span class="attr">arguments</span>:&lt;Arg&gt;,</div><div class="line">　m: 10,</div><div class="line">　y: 20,</div><div class="line">  bar: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>此时foo上下文中的作用域链为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fooContext.Scope = fooContext.AO + foo.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line">fooContext.Scope = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>函数”bar”创建时，其[[scope]]为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bar.[[Scope]] = fooContext.Scope;</div><div class="line"><span class="comment">//也就是</span></div><div class="line">bar.[[Scope]] = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>同理，bar就不写了。最后bar上下文的作用域链为:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">barContext.Scope = barContext.AO + bar.[[Scope]]</div><div class="line">barContext.Scope = [</div><div class="line">  barContext.AO,</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>在alert执行时，作用域链中查找标示符如下<br>查找 x,  barContext.AO 无 —-&gt; fooContext.AO 无 —-&gt;globalContext.VO 有<br>查找 Z,  barContext.AO 有<br>其他的就自己看了。</p>
+<p>当一段程序开始时，会先进入到全局执行上下文环境。此时如果调用了某些函数，就会进入他们的上下文环境，执行完之后再退出该上下文环境。</p>
+<p>假设激活了一个EC1的上下文，图解如下</p>
+<p><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113175418.png" alt=""></p>
+<h2 id="变量对象-VO-和活动对象-AO"><a href="#变量对象-VO-和活动对象-AO" class="headerlink" title="变量对象(VO)和活动对象(AO)"></a>变量对象(VO)和活动对象(AO)</h2><p>变量对象是一个与上下文相关的数据作用域，用于存储被定义在上下文中的变量和函数声明（不包括函数表达式）。在global全局上下文中，变量对象即使全局对象自身。</p>
+<p>copy一个例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// // 函数声明</span></div><div class="line">(<span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;&#125;); <span class="comment">// 函数表达式</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(</div><div class="line">  <span class="keyword">this</span>.foo == foo, <span class="comment">// true</span></div><div class="line">  <span class="built_in">window</span>.bar == bar <span class="comment">// true</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(baz); <span class="comment">// 引用错误，baz没有被定义</span></div></pre></td></tr></table></figure>
+<p>全局上下文中的变量对象(VO)会有如下属性：</p>
+<p><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113340977.png" alt=""></p>
+<p>在一个函数的上下文中，变量对象被表示为活动对象</p>
+<p>活动对象在进入上下文中初始化成了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AO = &#123;</div><div class="line">  <span class="attr">arguments</span>: &lt;ArgO&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>arguments属性值就是Arguments对象</p>
+<p>之后就是存储当前上下文的变量与函数声明</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>作用域链是一个 对象列表，用于检索上下文中出现的 标识符（变量名称、函数声明，普通参数）。<br>在函数创建的时候，当前的作用域链被存储到了函数的[[scope]]属性中。当进入上下文创建AO/VO之后，上下文(EC)的Scope属性作了如下处理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Scope = AO|VO + [[Scope]]</div></pre></td></tr></table></figure>
+<p>知识点就是这些，现在我们来一段代码，把过程给串联起来。在这之前，我们要知道另一个知识，就是执行上下文的代码被分成两个基本的阶段来处理</p>
+<p>1.进入执行上下文<br>2.执行代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">m</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> z = <span class="number">30</span>;</div><div class="line">    alert(x +  y + z + m);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  bar();</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">10</span>); <span class="comment">// 60</span></div></pre></td></tr></table></figure>
+<p>首先先进入全局上下文环境</p>
+<p>全局上下文的变量对象(代码执行时，x才被赋值)是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">globalContext.VO === Global = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">10</span></div><div class="line">  foo: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>globalContext.Scope = globalContext.VO;</p>
+<p>当”foo”创建时，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.Scope</div><div class="line">];</div><div class="line"><span class="comment">//也就是</span></div><div class="line">foo.[[Scope]] = [</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>在”foo”激活时，进入了foo的上下文，foo上下文中的活动对象(代码执行时，y才被赋值)是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fooContext.AO = &#123;</div><div class="line">　<span class="attr">arguments</span>:&lt;Arg&gt;,</div><div class="line">　m: 10,</div><div class="line">　y: 20,</div><div class="line">  bar: &lt;reference to function&gt;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>此时foo上下文中的作用域链为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fooContext.Scope = fooContext.AO + foo.[[Scope]] <span class="comment">// i.e.:</span></div><div class="line">fooContext.Scope = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>函数”bar”创建时，其[[scope]]为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bar.[[Scope]] = fooContext.Scope;</div><div class="line"><span class="comment">//也就是</span></div><div class="line">bar.[[Scope]] = [</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>同理，bar就不写了。最后bar上下文的作用域链为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">barContext.Scope = barContext.AO + bar.[[Scope]]</div><div class="line">barContext.Scope = [</div><div class="line">  barContext.AO,</div><div class="line">  fooContext.AO,</div><div class="line">  globalContext.VO</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>在alert执行时，作用域链中查找标示符如下</p>
+<p>查找 x,  barContext.AO 无 —-&gt; fooContext.AO 无 —-&gt;globalContext.VO 有<br>查找 Z,  barContext.AO 有</p>
+<p>其他的就自己看了。</p>
 <h2 id="局部变量、全局变量"><a href="#局部变量、全局变量" class="headerlink" title="局部变量、全局变量"></a>局部变量、全局变量</h2><p>在作用域链中查找标识符是需要花时间的，所以就明白为什么需要尽量使用局部变量(将频繁使用的全局变量缓存下来)，全局变量尽量少用了。并且with会破坏作用域链，它会将指定的VO/AO加入到作用域链的顶端，这样在标识符查找时，需要查找更长的作用域链。</p>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>理解了上面的概念，闭包就很容易理解了。闭包是代码块和创建该代码块的上下文中数据的结合。</p>
 
