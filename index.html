@@ -166,6 +166,59 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-webpack中，带表达式的require语句"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/06/webpack中，带表达式的require语句/">webpack中，带表达式的require语句</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/06/webpack中，带表达式的require语句/" class="article-date">
+	  <time datetime="2017-01-06T11:52:34.000Z" itemprop="datePublished">2017-01-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在我们的react项目中，偶尔会遇到这样的场景，就是我们需要加载一些动态的资源。我们知道es6中import只能加载静态的资源。所以加载就只剩下使用require方法。</p>
+<p>比方说下面这个需求：</p>
+<p>我们有个yml文件用于配置首页的banner相关信息，banner中包括图片及调整的链接地址<br>
+        <!-- 在我们的react项目中，偶尔会遇...... -->
+        <p class="article-more-link">
+          <a href="/2017/01/06/webpack中，带表达式的require语句/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-react组件生命周期详解--reactjs项目开发系列(5)"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -647,64 +700,12 @@
 
 
   
-    <article id="post-setTimeout与setInterval"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
+
+
+  <nav id="page-nav">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/06/22/setTimeout与setInterval/">setTimeout与setInterval</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/06/22/setTimeout与setInterval/" class="article-date">
-	  <time datetime="2015-06-22T15:23:33.000Z" itemprop="datePublished">2015-06-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/web/">web</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最新写代码中时，看到项目中有人用到了 setTimeout(fun,0)，于是想总结一下。个人理解，如果有错误的地方还请指出。THX</p>
-<p>要想理解JavaScript的定时器是如何工作的，先要明白 JavaScript 引擎是单线程的。这个可以理解为</p>
-<p>javascript 引擎是一个服务员，它有一个服务的队列，所有的界面元素事件,定时触发器回调，异步请求回调都要在这个任务队列里排队，等待处理。所有任务都是一个最小单位，不会中断处理。这样就可以理解 setTimeout(fun,0) 了，它并不是代表立即执行该代码，除非任务队列为空(事实上，各个浏览器在实际执行这个的时候也是有差异了，比较新的浏览器实际可能是在4ms；老版本的可能更长一点，16ms也是可能的)。而 setTimeout(fun,time) 的意思就是多少时间后将 fun 回调加到这个任务队列中，也就是至少需要time时间才会执行fun。</p>
-<p>举个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> tem = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</div><div class="line">  tem += i;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</div></pre></td></tr></table></figure>
-<p>显示结果为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure></p>
-<p>就是说，在执行 setTimeout 时，将 function 回调加入了任务队列，但并没有立即执行，因为js引擎还在忙着处理当前的js，而只在这段代码段执行完才去任务列表里取新的任务，所以结果就是先显示 2 后显示 1。</p>
-        <!-- 最新写代码中时，看到项目中有人用到...... -->
-        <p class="article-more-link">
-          <a href="/2015/06/22/setTimeout与setInterval/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 
 </section>
