@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tag: webpack | 个人博客</title>
+  <title>react组件生命周期详解--reactjs项目开发系列(5) | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="reactjs javascript es6 webpack 组件生命周期" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -13,15 +15,18 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="我就是我，是颜色不一样的烟花">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://www.cheneyliu.com/tags/webpack/index.html">
+  <meta name="description" content="react组件生命周期详解--reactjs项目开发系列(5)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react组件生命周期详解--reactjs项目开发系列(5)">
+<meta property="og:url" content="http://www.cheneyliu.com/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="我就是我，是颜色不一样的烟花">
+<meta property="og:description" content="react组件生命周期详解--reactjs项目开发系列(5)">
+<meta property="og:image" content="http://on8vxe1wn.bkt.clouddn.com/17-3-23/23913098-file_1490234755215_ba28.jpg">
+<meta property="og:updated_time" content="2017-03-26T12:02:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="我就是我，是颜色不一样的烟花">
+<meta name="twitter:title" content="react组件生命周期详解--reactjs项目开发系列(5)">
+<meta name="twitter:description" content="react组件生命周期详解--reactjs项目开发系列(5)">
+<meta name="twitter:image" content="http://on8vxe1wn.bkt.clouddn.com/17-3-23/23913098-file_1490234755215_ba28.jpg">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -53,8 +58,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -79,7 +82,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/logo.jpg">
               </a>
             
@@ -148,127 +151,117 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-  
-  
+          <section id="main" style="float:none;"><article id="post-react组件生命周期详解--reactjs项目开发系列(5)" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
-        </div>
-        <div class="archives">
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      react组件生命周期详解--reactjs项目开发系列(5)
+    </h1>
+  
+
+
+        
+         <div class="busuanzi_container_page_pv">
+           <span class="head-plus">
+           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+           </span>
+           <span class="head-plus">
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           </span>
+         </div>
+         
+
+      </header>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-meta">
       
-	<a href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/" class="archive-article-date">
+	<a href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/" class="article-date">
 	  <time datetime="2016-05-10T11:43:32.000Z" itemprop="datePublished">2016-05-10</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/">react组件生命周期详解--reactjs项目开发系列(5)</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前简单介绍了组件的生命周期，可分成三个状态：</p>
+<p>Mounting：已插入真实 DOM<br>Updating：正在被重新渲染<br>Unmounting：已移出真实 DOM</p>
+<p>更加详细的生命周期可以参考下面这图：</p>
+<p><img src="http://on8vxe1wn.bkt.clouddn.com/17-3-23/23913098-file_1490234755215_ba28.jpg" alt=""></p>
+<a id="more"></a>
+<p>接下来对几个比较常用到是生命周期进行讲解。</p>
+<h2 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h2><p>这个常用来初始化state。对于每个组件的每个实例来说，这个方法只会被调用一次，这个方法中，可以访问到this.props相关的属性。</p>
+<h2 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h2><p>在完成首次渲染之前调用，此时仍可以修改组件的state。</p>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><p>当然就是渲染了。这里是创建了一个虚拟dom，顶级组件只能出现一个。</p>
+<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h2><p>真实的DOM被渲染出来后调用，也就是第一次render之后执行。可以使用一些方法获取到真实节点。比方说getDOMNode()、findDOMNode()，或者jquery这样的(不建议使用)。</p>
+<p>我们也经常在这个方法中添加事件监听器。</p>
+<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><p>组件是否应当渲染新的props或state，返回false表示跳过后续的生命周期方法。这个常常用来进行性能优化。react使用一套diff算法来对是否需要更新做判断，当props或者state的指针修改了就认为数据修改了。实际应用中可能存在数据并未修改但指针修改的情况。此时在此方法中进行相关判断处理，可跳过后面的的生命周期优化性能。</p>
+<h2 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount"></a>componentWillUnmount</h2><p>组件被移除之前被调用，可以用于做一些清理工作。在componentDidMount方法中添加的所有任务都需要在该方法中撤销，比如创建的定时器或添加的事件监听器</p>
+<p>合理使用生命周期管理组件是react组件编写很重要的一部分。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/" data-title="react组件生命周期详解--reactjs项目开发系列(5)" data-url="http://www.cheneyliu.com/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cheneyliu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/26/react组件--reactjs项目开发系列(4)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">react组件--reactjs项目开发系列(4)</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
     
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#getInitialState"><span class="toc-number">1.</span> <span class="toc-text">getInitialState</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#componentWillMount"><span class="toc-number">2.</span> <span class="toc-text">componentWillMount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render"><span class="toc-number">3.</span> <span class="toc-text">render</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#componentDidMount"><span class="toc-number">4.</span> <span class="toc-text">componentDidMount</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shouldComponentUpdate"><span class="toc-number">5.</span> <span class="toc-text">shouldComponentUpdate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#componentWillUnmount"><span class="toc-number">6.</span> <span class="toc-text">componentWillUnmount</span></a></li></ol>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/04/26/react组件--reactjs项目开发系列(4)/" class="archive-article-date">
-	  <time datetime="2016-04-26T12:23:20.000Z" itemprop="datePublished">2016-04-26</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/04/26/react组件--reactjs项目开发系列(4)/">react组件--reactjs项目开发系列(4)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/04/20/创建一个reactjs项目(下)--reactjs项目开发系列(3)/" class="archive-article-date">
-	  <time datetime="2016-04-20T13:42:44.000Z" itemprop="datePublished">2016-04-20</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/04/20/创建一个reactjs项目(下)--reactjs项目开发系列(3)/">创建一个reactjs项目(下)--reactjs项目开发系列(3)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/04/16/创建一个reactjs项目(上)--reactjs项目开发系列(2)/" class="archive-article-date">
-	  <time datetime="2016-04-16T12:33:14.000Z" itemprop="datePublished">2016-04-16</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/04/16/创建一个reactjs项目(上)--reactjs项目开发系列(2)/">创建一个reactjs项目(上)--reactjs项目开发系列(2)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/04/12/webpack初探-reactjs项目开发系列(1)/" class="archive-article-date">
-	  <time datetime="2016-04-12T14:08:10.000Z" itemprop="datePublished">2016-04-12</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/04/12/webpack初探-reactjs项目开发系列(1)/">webpack初探--reactjs项目开发系列(1)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+    </div>
+  </aside>
 
 </section>
         
@@ -372,6 +365,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
