@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
   
-  <title>webpack中，带表达式的require语句 | 个人博客</title>
+  <title>归档: 2016/7 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-    <meta name="keywords" content="reactjs javascript  webpack" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -15,16 +13,15 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="webpack中，带表达式的require语句">
-<meta property="og:type" content="article">
-<meta property="og:title" content="webpack中，带表达式的require语句">
-<meta property="og:url" content="http://www.cheneyliu.com/2017/01/06/webpack中，带表达式的require语句/index.html">
+  <meta name="description" content="我就是我，是颜色不一样的烟花">
+<meta property="og:type" content="website">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="http://www.cheneyliu.com/archives/2016/07/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="webpack中，带表达式的require语句">
-<meta property="og:updated_time" content="2017-03-26T13:57:28.000Z">
+<meta property="og:description" content="我就是我，是颜色不一样的烟花">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack中，带表达式的require语句">
-<meta name="twitter:description" content="webpack中，带表达式的require语句">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="我就是我，是颜色不一样的烟花">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -56,6 +53,8 @@
   
 
   
+    <link rel="stylesheet" href="/css/archive.css" >
+  
 
 </head>
 
@@ -80,7 +79,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/logo.jpg">
               </a>
             
@@ -149,118 +148,170 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-webpack中，带表达式的require语句" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" class="article-title" itemprop="name">
-      webpack中，带表达式的require语句
-    </h1>
-  
+          <section id="main">
+  <div class="archives-tags-wrap"><blockquote><span>嗯，目前共计14篇文章</span></blockquote>
 
 
-        
-         <div class="busuanzi_container_page_pv">
-           <span class="head-plus">
-           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
-           </span>
-           <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/06/webpack中，带表达式的require语句/"><i class="fa fa-spinner fa-spin"></i></span>条评论
-           </span>
-         </div>
-         
+<!-- 分页显示 -->
 
-      </header>
-    
-    <div class="article-meta">
+	
+	
+		
+		
+		  
+		  
+		  <section class="archives-wrap">
+		    <div class="archive-year-wrap">
+		      <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
+		    </div>
+		    <div class="archives">
+		
+		<article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       
-	<a href="/2017/01/06/webpack中，带表达式的require语句/" class="article-date">
-	  <time datetime="2017-01-06T11:52:34.000Z" itemprop="datePublished">2017-01-06</time>
+	<a href="/2016/07/19/ES6设计模式-装饰者模式/" class="archive-article-date">
+	  <time datetime="2016-07-19T14:36:43.000Z" itemprop="datePublished">2016-07-19</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2016/07/19/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
+    </h1>
+  
 
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在我们的react项目中，偶尔会遇到这样的场景，就是我们需要加载一些动态的资源。我们知道es6中import只能加载静态的资源。所以加载就只剩下使用require方法。</p>
-<p>比方说下面这个需求：</p>
-<p>我们有个yml文件用于配置首页的banner相关信息，banner中包括图片及调整的链接地址<br><a id="more"></a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># config.yml</div><div class="line">banner:</div><div class="line">    - image: 'banner1.jpg'</div><div class="line">      url: 'http://xxx.com'</div><div class="line">    - image: 'banner1.jpg'</div><div class="line">      url: 'http://xxx.com'</div></pre></td></tr></table></figure>
-<p>在我们的组件代码中需要导入这个banner</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">"json!yaml!./config.yml"</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">const</span> banner = config.banner.map(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"./image/"</span> + item.image);</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                &#123;banner&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>require(“./image/“ + item.image) 这个代码是不能加载到正确的模块的。</p>
-<p>当我们使用require语句参数传入表达式的时候，webpack解析时，会创建一个模块上下文，并给模块分配id，再根据id进行加载。但是只是能解析一下非常简单的表达式。当表达式不能被正确解析加载到模块的时候，就需要我们自己来创建模块上下文</p>
-<h2 id="require-context"><a href="#require-context" class="headerlink" title="require.context"></a>require.context</h2><p>方法中传入3个参数</p>
-<p>要搜索的文件夹目录<br>是否还应该搜索它的子目录<br>以及一个匹配文件的正则表达式</p>
-<p>比方上面的示例中进行修改</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Banner.js</span></div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">"json!yaml!./config.yml"</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">let</span> req = <span class="built_in">require</span>.context(<span class="string">"../image/"</span>, <span class="literal">true</span>, /^.*\.jpg/);</div><div class="line">        <span class="keyword">const</span> banner = config.banner.map(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</div><div class="line">            <span class="keyword">return</span> req(item.image);</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                &#123;banner&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>创建自己的上下文加载即可</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        
-	<div id="comment">
-	
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/01/06/webpack中，带表达式的require语句/" data-title="webpack中，带表达式的require语句" data-url="http://www.cheneyliu.com/2017/01/06/webpack中，带表达式的require语句/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"cheneyliu"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0] 
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
-	
-	</div>
-
-
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2016/07/19/ES6设计模式-装饰者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">ES6设计模式-装饰者模式</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+	
+		
+		
+		<article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+	<a href="/2016/07/16/ES6设计模式-工厂模式/" class="archive-article-date">
+	  <time datetime="2016-07-16T12:14:23.000Z" itemprop="datePublished">2016-07-16</time>
+	</a>
 
-<!-- Table of Contents -->
+      
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2016/07/16/ES6设计模式-工厂模式/">ES6设计模式-工厂模式</a>
+    </h1>
+  
 
-  <aside id="sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#require-context"><span class="toc-number">1.</span> <span class="toc-text">require.context</span></a></li></ol>
-    
-    </div>
-  </aside>
+    </header>
+  </div>
+</article>
+	
+		
+		
+		<article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+	<a href="/2016/07/12/ES6设计模式-单例模式/" class="archive-article-date">
+	  <time datetime="2016-07-12T13:32:43.000Z" itemprop="datePublished">2016-07-12</time>
+	</a>
+
+      
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2016/07/12/ES6设计模式-单例模式/">ES6设计模式-单例模式</a>
+    </h1>
+  
+
+    </header>
+  </div>
+</article>
+	
+	
+		</div></section>
+	
+
+	<!-- 页数指示器 -->
+	
+
+
+
 
 </section>
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactjs/">reactjs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/reactjs/" style="font-size: 20px;">reactjs</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/06/webpack中，带表达式的require语句/">webpack中，带表达式的require语句</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/19/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/16/ES6设计模式-工厂模式/">ES6设计模式-工厂模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/12/ES6设计模式-单例模式/">ES6设计模式-单例模式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/">react组件生命周期详解--reactjs项目开发系列(5)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
         
       </div>
       
@@ -362,8 +413,6 @@
 
 
 
-
-  <script src="/js/dialog.js"></script>
 
 
 

@@ -166,6 +166,172 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-高效操作DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/09/高效操作DOM/">高效操作DOM</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/09/高效操作DOM/" class="article-date">
+	  <time datetime="2015-08-09T13:21:37.000Z" itemprop="datePublished">2015-08-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DOM树与Render树"><a href="#DOM树与Render树" class="headerlink" title="DOM树与Render树"></a>DOM树与Render树</h2><p>这个应该都是知道的。就是用户请求HTML下来后，浏览器渲染引擎的基本工作中两个概念。</p>
+<p><img src="http://taligarsiel.com/Projects/flow.png?_=4716401" alt=""></p>
+<p>copy一张图，流程大概就是：解析html构建DOM树，渲染树构建，渲染树布局，绘制渲染树。</p>
+<p>这里要注意的一点是，DOM树和render树并不是简单的一一对应关系。render树中并不包含那些不需要渲染的节点。比方说head、title这样的；display：none也是不会有的；还有一些设置position:absolute，fixed，构造render树时会根据实际情况来构造。</p>
+        <!-- DOM树与Render树这个应该都...... -->
+        <p class="article-more-link">
+          <a href="/2015/08/09/高效操作DOM/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-javascript作用域链"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/08/02/javascript作用域链/">javascript作用域链</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/08/02/javascript作用域链/" class="article-date">
+	  <time datetime="2015-08-02T15:30:01.000Z" itemprop="datePublished">2015-08-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近想整理一下js执行代码的一些知识，如果有出错的地方还请指正。</p>
+<h2 id="执行环境-Execution-Context"><a href="#执行环境-Execution-Context" class="headerlink" title="执行环境(Execution Context)"></a>执行环境(Execution Context)</h2><p>所有的javascript代码都是在一个执行环境中被执行的。它只是一种机制，用来完成运行时作用域、生存期等方面的处理。</p>
+<p>代码分为三种类型：</p>
+<p>1.Global Code<br>2.Eval Code<br>3.Function Code</p>
+<p>这是一个EC结构</p>
+<p><img src="http://pic002.cnblogs.com/images/2011/349491/2011123113224058.png" alt=""></p>
+<p>可以理解如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">activeExecutionContext = &#123;</div><div class="line">    <span class="attr">VO</span>: &#123;...&#125;, <span class="comment">// or AO</span></div><div class="line">    <span class="keyword">this</span>: thisValue,</div><div class="line">    <span class="attr">Scope</span>: [ <span class="comment">// Scope chain</span></div><div class="line">      <span class="comment">// 所有变量对象的列表</span></div><div class="line">      <span class="comment">// for identifiers lookup</span></div><div class="line">    ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        <!-- 最近想整理一下js执行代码的一些知...... -->
+        <p class="article-more-link">
+          <a href="/2015/08/02/javascript作用域链/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-javascript原型和原型链"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/07/29/javascript原型和原型链/">javascript原型和原型链</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2015/07/29/javascript原型和原型链/" class="article-date">
+	  <time datetime="2015-07-29T15:12:27.000Z" itemprop="datePublished">2015-07-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近几天，好些新同事来问原型，原型链啥的。本身作为菜鸟的我好像也没有好好整理过这个，这里写写自己的理解。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>大家都知道，JavaScript 不包含传统的类继承模型，而是使用 prototype 原型模型。代码实现大概是这样子的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Kimy = <span class="keyword">new</span> Student(<span class="string">"Kimy"</span>);</div><div class="line"></div><div class="line">Student.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"say"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Kimy.say();</div><div class="line"><span class="comment">//Kimysay</span></div></pre></td></tr></table></figure>
+<p>Kimy本身是没有say方法的，当他在自己对象中找不到该方法时就回去他的原型中查找，也就是Student.prototype对象中查找。这里我们用到了一个构造函数Student</p>
+        <!-- 最近几天，好些新同事来问原型，原型...... -->
+        <p class="article-more-link">
+          <a href="/2015/07/29/javascript原型和原型链/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-setTimeout与setInterval"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     

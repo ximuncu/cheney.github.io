@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>webpack中，带表达式的require语句 | 个人博客</title>
+  <title>es6设计模式-单例模式 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="reactjs javascript  webpack" />
+    <meta name="keywords" content="ES6 设计模式 单例模式" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -15,16 +15,16 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="webpack中，带表达式的require语句">
+  <meta name="description" content="ES6设计模式-单例模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack中，带表达式的require语句">
-<meta property="og:url" content="http://www.cheneyliu.com/2017/01/06/webpack中，带表达式的require语句/index.html">
+<meta property="og:title" content="ES6设计模式-单例模式">
+<meta property="og:url" content="http://www.cheneyliu.com/2016/07/12/ES6设计模式-单例模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="webpack中，带表达式的require语句">
-<meta property="og:updated_time" content="2017-03-26T13:57:28.000Z">
+<meta property="og:description" content="ES6设计模式-单例模式">
+<meta property="og:updated_time" content="2017-03-28T15:23:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack中，带表达式的require语句">
-<meta name="twitter:description" content="webpack中，带表达式的require语句">
+<meta name="twitter:title" content="ES6设计模式-单例模式">
+<meta name="twitter:description" content="ES6设计模式-单例模式">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-webpack中，带表达式的require语句" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-ES6设计模式-单例模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -157,7 +157,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      webpack中，带表达式的require语句
+      ES6设计模式-单例模式
     </h1>
   
 
@@ -168,7 +168,7 @@
            <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
            </span>
            <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2017/01/06/webpack中，带表达式的require语句/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/07/12/ES6设计模式-单例模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
            </span>
          </div>
          
@@ -177,29 +177,25 @@
     
     <div class="article-meta">
       
-	<a href="/2017/01/06/webpack中，带表达式的require语句/" class="article-date">
-	  <time datetime="2017-01-06T11:52:34.000Z" itemprop="datePublished">2017-01-06</time>
+	<a href="/2016/07/12/ES6设计模式-单例模式/" class="article-date">
+	  <time datetime="2016-07-12T13:32:43.000Z" itemprop="datePublished">2016-07-12</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在我们的react项目中，偶尔会遇到这样的场景，就是我们需要加载一些动态的资源。我们知道es6中import只能加载静态的资源。所以加载就只剩下使用require方法。</p>
-<p>比方说下面这个需求：</p>
-<p>我们有个yml文件用于配置首页的banner相关信息，banner中包括图片及调整的链接地址<br><a id="more"></a></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># config.yml</div><div class="line">banner:</div><div class="line">    - image: 'banner1.jpg'</div><div class="line">      url: 'http://xxx.com'</div><div class="line">    - image: 'banner1.jpg'</div><div class="line">      url: 'http://xxx.com'</div></pre></td></tr></table></figure>
-<p>在我们的组件代码中需要导入这个banner</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">"json!yaml!./config.yml"</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">const</span> banner = config.banner.map(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="built_in">require</span>(<span class="string">"./image/"</span> + item.image);</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                &#123;banner&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>require(“./image/“ + item.image) 这个代码是不能加载到正确的模块的。</p>
-<p>当我们使用require语句参数传入表达式的时候，webpack解析时，会创建一个模块上下文，并给模块分配id，再根据id进行加载。但是只是能解析一下非常简单的表达式。当表达式不能被正确解析加载到模块的时候，就需要我们自己来创建模块上下文</p>
-<h2 id="require-context"><a href="#require-context" class="headerlink" title="require.context"></a>require.context</h2><p>方法中传入3个参数</p>
-<p>要搜索的文件夹目录<br>是否还应该搜索它的子目录<br>以及一个匹配文件的正则表达式</p>
-<p>比方上面的示例中进行修改</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Banner.js</span></div><div class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">"react"</span>;</div><div class="line"><span class="keyword">import</span> config <span class="keyword">from</span> <span class="string">"json!yaml!./config.yml"</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">let</span> req = <span class="built_in">require</span>.context(<span class="string">"../image/"</span>, <span class="literal">true</span>, /^.*\.jpg/);</div><div class="line">        <span class="keyword">const</span> banner = config.banner.map(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</div><div class="line">            <span class="keyword">return</span> req(item.image);</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                &#123;banner&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>创建自己的上下文加载即可</p>
+        <p>单例就是保证一个类只有一个实例。通常的实现方式是，先判断实例是否存在，如果存在直接将实例返回，如果不存在，就创建一个实例返回并且将这个实例保存起来。这样就保证了只有一个实例了。</p>
+<p>实现单例模式的方式有很多种.我们可以根据实际情况灵活运用。</p>
+<a id="more"></a>
+<p>直接使用对象字面量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Singleton.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    <span class="attr">property1</span> : <span class="string">"property1"</span>,</div><div class="line">    <span class="attr">property2</span> : <span class="string">"property2"</span>,</div><div class="line">    <span class="attr">method</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"hello world。"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> Singleton <span class="keyword">from</span> <span class="string">'./Singleton.js'</span>;</div><div class="line"><span class="keyword">let</span> single1 = Singleton;</div><div class="line"><span class="keyword">let</span> single2 = Singleton;</div><div class="line"><span class="built_in">console</span>.log(single1 === single2); <span class="comment">//输出true</span></div></pre></td></tr></table></figure>
+<p>当我们需要添加一些私有属性或者私有方法的时候（es6中也不支持私有属性及私有方法），我们可以使用闭包来实现，改写我们的Singleton.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Singleton.js</span></div><div class="line"><span class="keyword">let</span> Singleton = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">/* 这里声明私有变量和方法 */</span></div><div class="line">    <span class="keyword">var</span> privateProperty = <span class="string">"私有属性"</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showPrivate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(privateProperty);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/* 公有变量和方法（可以访问私有变量和方法） */</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">publicMethod</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            showPrivate();</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">publicProperty</span>: <span class="string">"公共属性"</span></div><div class="line">    &#125;;</div><div class="line">&#125;)();</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> Singleton;</div></pre></td></tr></table></figure>
+<p>ES6中增加了对类的支持，我们也可以这样去实现单例模式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Person.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">if</span>(Person.instance !== <span class="literal">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span> Person.instance;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        Person.instance = <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Person.instance = <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> Person <span class="keyword">from</span> <span class="string">'./Person.js'</span>;</div><div class="line"><span class="keyword">let</span> lily = <span class="keyword">new</span> Person(<span class="string">"lily"</span>);</div><div class="line"><span class="keyword">let</span> lucy = <span class="keyword">new</span> Person(<span class="string">"lucy"</span>);</div><div class="line"><span class="built_in">console</span>.log(lucy.name); <span class="comment">// lily</span></div><div class="line"><span class="built_in">console</span>.log(lily === lucy); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -209,7 +205,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/01/06/webpack中，带表达式的require语句/" data-title="webpack中，带表达式的require语句" data-url="http://www.cheneyliu.com/2017/01/06/webpack中，带表达式的require语句/"></div>
+	 <div class="ds-thread" data-thread-key="/2016/07/12/ES6设计模式-单例模式/" data-title="ES6设计模式-单例模式" data-url="http://www.cheneyliu.com/2016/07/12/ES6设计模式-单例模式/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -230,7 +226,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -238,10 +234,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2016/07/16/ES6设计模式-工厂模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ES6设计模式-工厂模式
+        
+      </div>
+    </a>
   
-    <a href="/2016/07/19/ES6设计模式-装饰者模式/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">ES6设计模式-装饰者模式</div>
+      <div class="article-nav-title">react组件生命周期详解--reactjs项目开发系列(5)</div>
     </a>
   
 </nav>
@@ -255,7 +260,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#require-context"><span class="toc-number">1.</span> <span class="toc-text">require.context</span></a></li></ol>
+    <ol class="toc">无</ol>
     
     </div>
   </aside>
