@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2016/7 | 个人博客</title>
+  <title>es6设计模式-代理模式 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="ES6 设计模式 代理模式" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -13,15 +15,16 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="我就是我，是颜色不一样的烟花">
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://www.cheneyliu.com/archives/2016/07/index.html">
+  <meta name="description" content="ES6设计模式-代理模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6设计模式-代理模式">
+<meta property="og:url" content="http://www.cheneyliu.com/2016/07/28/ES6设计模式-代理模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="我就是我，是颜色不一样的烟花">
+<meta property="og:description" content="ES6设计模式-代理模式">
+<meta property="og:updated_time" content="2017-03-31T07:27:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="我就是我，是颜色不一样的烟花">
+<meta name="twitter:title" content="ES6设计模式-代理模式">
+<meta name="twitter:description" content="ES6设计模式-代理模式">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -53,8 +56,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -79,7 +80,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/logo.jpg">
               </a>
             
@@ -148,212 +149,119 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>嗯，目前共计16篇文章</span></blockquote>
+          <section id="main" style="float:none;"><article id="post-ES6设计模式-代理模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ES6设计模式-代理模式
+    </h1>
+  
 
 
-<!-- 分页显示 -->
+        
+         <div class="busuanzi_container_page_pv">
+           <span class="head-plus">
+           <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
+           </span>
+           <span class="head-plus">
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/07/28/ES6设计模式-代理模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           </span>
+         </div>
+         
 
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2016/07/28/ES6设计模式-代理模式/" class="archive-article-date">
+	<a href="/2016/07/28/ES6设计模式-代理模式/" class="article-date">
 	  <time datetime="2016-07-28T14:34:11.000Z" itemprop="datePublished">2016-07-28</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/07/28/ES6设计模式-代理模式/">ES6设计模式-代理模式</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代理模式也比较好理解。比方说我想去图书馆找本书，但是我又不知道图书馆在哪里，有哪些图书馆。这时候呢我找了一个中介，他说只要告诉他我要什么书，他去图书馆帮我借，而且还是免费提供服务。这个中介就是一个代理。</p>
+<p>就是代理那有些资源，或者提供跑腿服务，你直接让代理帮你去做事情。比方酒店提供机票预订服务，可以帮顾客预订机票。这也是代理</p>
+<a id="more"></a>
+<p>下面我们用代码来实现一下图书馆找书代理模式实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2016/07/28/ES6设计模式-代理模式/" data-title="ES6设计模式-代理模式" data-url="http://www.cheneyliu.com/2016/07/28/ES6设计模式-代理模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cheneyliu"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/06/webpack中，带表达式的require语句/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          webpack中，带表达式的require语句
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/23/ES6设计模式-外观模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">ES6设计模式-外观模式</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/07/23/ES6设计模式-外观模式/" class="archive-article-date">
-	  <time datetime="2016-07-23T12:12:33.000Z" itemprop="datePublished">2016-07-23</time>
-	</a>
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/07/23/ES6设计模式-外观模式/">ES6设计模式-外观模式</a>
-    </h1>
-  
+<!-- Table of Contents -->
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/07/19/ES6设计模式-装饰者模式/" class="archive-article-date">
-	  <time datetime="2016-07-19T14:36:43.000Z" itemprop="datePublished">2016-07-19</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/07/19/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/07/16/ES6设计模式-工厂模式/" class="archive-article-date">
-	  <time datetime="2016-07-16T12:14:23.000Z" itemprop="datePublished">2016-07-16</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/07/16/ES6设计模式-工厂模式/">ES6设计模式-工厂模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2016/07/12/ES6设计模式-单例模式/" class="archive-article-date">
-	  <time datetime="2016-07-12T13:32:43.000Z" itemprop="datePublished">2016-07-12</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2016/07/12/ES6设计模式-单例模式/">ES6设计模式-单例模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-	
-		</div></section>
-	
-
-	<!-- 页数指示器 -->
-	
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
 
 </section>
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/reactjs/">reactjs</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reactjs/">reactjs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">5</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/reactjs/" style="font-size: 20px;">reactjs</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/01/06/webpack中，带表达式的require语句/">webpack中，带表达式的require语句</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/28/ES6设计模式-代理模式/">ES6设计模式-代理模式</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/23/ES6设计模式-外观模式/">ES6设计模式-外观模式</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/19/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/16/ES6设计模式-工厂模式/">ES6设计模式-工厂模式</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -455,6 +363,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
