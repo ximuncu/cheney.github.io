@@ -219,7 +219,7 @@
 
 
   
-    <article id="post-ES6设计模式-代理模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-JavaScript如何实现继承"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -227,7 +227,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/07/28/ES6设计模式-代理模式/">ES6设计模式-代理模式</a>
+      <a class="article-title" href="/2016/12/14/JavaScript如何实现继承/">JavaScript如何实现继承</a>
     </h1>
   
 
@@ -239,8 +239,113 @@
     
     <div class="article-meta">
       
-	<a href="/2016/07/28/ES6设计模式-代理模式/" class="article-date">
-	  <time datetime="2016-07-28T14:34:11.000Z" itemprop="datePublished">2016-07-28</time>
+	<a href="/2016/12/14/JavaScript如何实现继承/" class="article-date">
+	  <time datetime="2016-12-14T11:43:23.000Z" itemprop="datePublished">2016-12-14</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>es6中我们通过 extends 关键字进行继承。但在这之前，我们要想做继承该怎么做呢。</p>
+<h2 id="简单原型链"><a href="#简单原型链" class="headerlink" title="简单原型链"></a>简单原型链</h2><p>这个是比较简单的继承实现，就是将实例化一个父类对象，将其fu赋值给子类构造函数的prototype对象</p>
+<p>代码实现：</p>
+        <!-- es6中我们通过 extends ...... -->
+        <p class="article-more-link">
+          <a href="/2016/12/14/JavaScript如何实现继承/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-JavaScript如何构建对象"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/11/08/JavaScript如何构建对象/">JavaScript如何构建对象</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/11/08/JavaScript如何构建对象/" class="article-date">
+	  <time datetime="2016-11-08T13:34:31.000Z" itemprop="datePublished">2016-11-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/web/">web</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在JavaScript中构建对象有很多种方式，这里主要想说说的是es5中如何构建对象。es6中已经引入了类的概念，直接使用类去生成对象即可，但是在es5中，并没有提供一个这样的类。我们可以使用很多方法去构建对象。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式就是使用参数初始化一个对象然后将对象返回出来。</p>
+        <!-- 在JavaScript中构建对象有...... -->
+        <p class="article-more-link">
+          <a href="/2016/11/08/JavaScript如何构建对象/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-ES6设计模式-代理模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/28/ES6设计模式-代理模式/">ES6设计模式-代理模式</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/28/ES6设计模式-代理模式/" class="article-date">
+	  <time datetime="2016-08-28T14:34:11.000Z" itemprop="datePublished">2016-08-28</time>
 	</a>
 
       
@@ -250,10 +355,62 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>代理模式也比较好理解。比方说我想去图书馆找本书，但是我又不知道图书馆在哪里，有哪些图书馆。这时候呢我找了一个中介，他说只要告诉他我要什么书，他去图书馆帮我借，而且还是免费提供服务。这个中介就是一个代理。</p>
-<p>就是代理那有些资源，或者提供跑腿服务，你直接让代理帮你去做事情。比方酒店提供机票预订服务，可以帮顾客预订机票。这也是代理</p>
+<p>就是代理那有些资源，或者提供跑腿服务，你直接让代理帮你去做事情。比方酒店提供机票预订服务，可以帮顾客预订机票。这也是代理。</p>
         <!-- 代理模式也比较好理解。比方说我想去...... -->
         <p class="article-more-link">
-          <a href="/2016/07/28/ES6设计模式-代理模式/#more">阅读全文</a>
+          <a href="/2016/08/28/ES6设计模式-代理模式/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-ES6设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/09/ES6设计模式-观察者模式/">ES6设计模式-观察者模式</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/09/ES6设计模式-观察者模式/" class="article-date">
+	  <time datetime="2016-08-09T14:34:11.000Z" itemprop="datePublished">2016-08-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>观察者模式，又叫做发布订阅模式。类似一种广播的方式，它定义了一种一对多的关系，让多个观察者对象同时监听某一个主题对象，这个主题对象的状态发生变化时就会通知所有的观察者对象，使得它们能够自动更新自己。</p>
+<p>下面是封装了一个eventProxy 对象，提供的发布订阅的几个方法。<br>
+        <!-- 观察者模式，又叫做发布订阅模式。类...... -->
+        <p class="article-more-link">
+          <a href="/2016/08/09/ES6设计模式-观察者模式/#more">阅读全文</a>
         </p>
       
     </div>
@@ -322,58 +479,6 @@
 
 
   
-    <article id="post-ES6设计模式-装饰者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/07/19/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/07/19/ES6设计模式-装饰者模式/" class="article-date">
-	  <time datetime="2016-07-19T14:36:43.000Z" itemprop="datePublished">2016-07-19</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我们想给对象添加些各种的行为时，我们就可以使用装饰者模式了。这个从字面上就很好理解了。比方说我买了一辆低配车（new 出来了一个实例），这个时候呢我想给我这辆车添加一个配置，比方说添加了导航。这个时候我车的价格可能就需要加上我导航配置的钱的。</p>
-<p>用代码来解释一下。</p>
-        <!-- 当我们想给对象添加些各种的行为时，...... -->
-        <p class="article-more-link">
-          <a href="/2016/07/19/ES6设计模式-装饰者模式/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-ES6设计模式-工厂模式"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -425,7 +530,7 @@
 
 
   
-    <article id="post-ES6设计模式-单例模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-ES6设计模式-装饰者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -433,7 +538,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/07/12/ES6设计模式-单例模式/">ES6设计模式-单例模式</a>
+      <a class="article-title" href="/2016/07/10/ES6设计模式-装饰者模式/">ES6设计模式-装饰者模式</a>
     </h1>
   
 
@@ -445,8 +550,60 @@
     
     <div class="article-meta">
       
-	<a href="/2016/07/12/ES6设计模式-单例模式/" class="article-date">
-	  <time datetime="2016-07-12T13:32:43.000Z" itemprop="datePublished">2016-07-12</time>
+	<a href="/2016/07/10/ES6设计模式-装饰者模式/" class="article-date">
+	  <time datetime="2016-07-10T14:36:43.000Z" itemprop="datePublished">2016-07-10</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当我们想给对象添加些各种的行为时，我们就可以使用装饰者模式了。这个从字面上就很好理解了。比方说我买了一辆低配车（new 出来了一个实例），这个时候呢我想给我这辆车添加一个配置，比方说添加了导航。这个时候我车的价格可能就需要加上我导航配置的钱的。</p>
+<p>用代码来解释一下。</p>
+        <!-- 当我们想给对象添加些各种的行为时，...... -->
+        <p class="article-more-link">
+          <a href="/2016/07/10/ES6设计模式-装饰者模式/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-ES6设计模式-单例模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/06/12/ES6设计模式-单例模式/">ES6设计模式-单例模式</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/06/12/ES6设计模式-单例模式/" class="article-date">
+	  <time datetime="2016-06-12T13:32:43.000Z" itemprop="datePublished">2016-06-12</time>
 	</a>
 
       
@@ -459,7 +616,7 @@
 <p>实现单例模式的方式有很多种.我们可以根据实际情况灵活运用。</p>
         <!-- 单例就是保证一个类只有一个实例。通...... -->
         <p class="article-more-link">
-          <a href="/2016/07/12/ES6设计模式-单例模式/#more">阅读全文</a>
+          <a href="/2016/06/12/ES6设计模式-单例模式/#more">阅读全文</a>
         </p>
       
     </div>
@@ -514,161 +671,6 @@
         <!-- 之前简单介绍了组件的生命周期，可分...... -->
         <p class="article-more-link">
           <a href="/2016/05/10/react组件生命周期详解--reactjs项目开发系列(5)/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-react组件--reactjs项目开发系列(4)"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/04/26/react组件--reactjs项目开发系列(4)/">react组件--reactjs项目开发系列(4)</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/04/26/react组件--reactjs项目开发系列(4)/" class="article-date">
-	  <time datetime="2016-04-26T12:23:20.000Z" itemprop="datePublished">2016-04-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。可以这么说，一个 React 应用就是构建在 React 组件之上的。在前面我们创建了一个简单组件。</p>
-        <!-- React 允许将代码封装成组件（...... -->
-        <p class="article-more-link">
-          <a href="/2016/04/26/react组件--reactjs项目开发系列(4)/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-创建一个reactjs项目(下)--reactjs项目开发系列(3)"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/04/20/创建一个reactjs项目(下)--reactjs项目开发系列(3)/">创建一个reactjs项目(下)--reactjs项目开发系列(3)</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/04/20/创建一个reactjs项目(下)--reactjs项目开发系列(3)/" class="article-date">
-	  <time datetime="2016-04-20T13:42:44.000Z" itemprop="datePublished">2016-04-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上篇中讲到了如何创建一个简单的reactjs项目。但实际开发中，每次都需要打包然后刷新显得十分繁琐，并且在实际项目中，一般都是需要两个环境，及开发环境和生产环境。开发环境中当然是希望有热更新，修改完，直接浏览器就能看到输出结果；而生产环境就需要去除一些开发中使用到的工具，并且将一些资源打包之类的。</p>
-        <!-- 上篇中讲到了如何创建一个简单的re...... -->
-        <p class="article-more-link">
-          <a href="/2016/04/20/创建一个reactjs项目(下)--reactjs项目开发系列(3)/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reactjs/">reactjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-创建一个reactjs项目(上)--reactjs项目开发系列(2)"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/04/16/创建一个reactjs项目(上)--reactjs项目开发系列(2)/">创建一个reactjs项目(上)--reactjs项目开发系列(2)</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/04/16/创建一个reactjs项目(上)--reactjs项目开发系列(2)/" class="article-date">
-	  <time datetime="2016-04-16T12:33:14.000Z" itemprop="datePublished">2016-04-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/reactjs/">reactjs</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>创建一个简单的reactjs项目并不复杂。</p>
-<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>需要安装了node环境。例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">node -v</div><div class="line"><span class="comment">//v6.8.0</span></div><div class="line">npm -v</div><div class="line"><span class="comment">//3.10.8</span></div></pre></td></tr></table></figure></p>
-<h2 id="创建项目目录"><a href="#创建项目目录" class="headerlink" title="创建项目目录"></a>创建项目目录</h2><p>mkdir创建一个目录，使用 npm init 初始化，填入相关的项目信息</p>
-        <!-- 创建一个简单的reactjs项目并...... -->
-        <p class="article-more-link">
-          <a href="/2016/04/16/创建一个reactjs项目(上)--reactjs项目开发系列(2)/#more">阅读全文</a>
         </p>
       
     </div>

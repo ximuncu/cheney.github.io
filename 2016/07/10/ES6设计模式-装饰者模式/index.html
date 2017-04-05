@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>es6设计模式-工厂模式 | 个人博客</title>
+  <title>es6设计模式-装饰者模式 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="ES6 设计模式 工厂模式" />
+    <meta name="keywords" content="ES6 设计模式 装饰者模式" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -15,16 +15,16 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="ES6设计模式-工厂模式">
+  <meta name="description" content="ES6设计模式-装饰者模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6设计模式-工厂模式">
-<meta property="og:url" content="http://www.cheneyliu.com/2016/07/16/ES6设计模式-工厂模式/index.html">
+<meta property="og:title" content="ES6设计模式-装饰者模式">
+<meta property="og:url" content="http://www.cheneyliu.com/2016/07/10/ES6设计模式-装饰者模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="ES6设计模式-工厂模式">
-<meta property="og:updated_time" content="2017-04-05T09:37:33.000Z">
+<meta property="og:description" content="ES6设计模式-装饰者模式">
+<meta property="og:updated_time" content="2017-04-05T15:12:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6设计模式-工厂模式">
-<meta name="twitter:description" content="ES6设计模式-工厂模式">
+<meta name="twitter:title" content="ES6设计模式-装饰者模式">
+<meta name="twitter:description" content="ES6设计模式-装饰者模式">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-ES6设计模式-工厂模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-ES6设计模式-装饰者模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -157,7 +157,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      ES6设计模式-工厂模式
+      ES6设计模式-装饰者模式
     </h1>
   
 
@@ -168,7 +168,7 @@
            <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
            </span>
            <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/07/16/ES6设计模式-工厂模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/07/10/ES6设计模式-装饰者模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
            </span>
          </div>
          
@@ -177,8 +177,8 @@
     
     <div class="article-meta">
       
-	<a href="/2016/07/16/ES6设计模式-工厂模式/" class="article-date">
-	  <time datetime="2016-07-16T12:14:23.000Z" itemprop="datePublished">2016-07-16</time>
+	<a href="/2016/07/10/ES6设计模式-装饰者模式/" class="article-date">
+	  <time datetime="2016-07-10T14:36:43.000Z" itemprop="datePublished">2016-07-10</time>
 	</a>
 
       
@@ -187,15 +187,11 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>工厂模式，就是在遇到需要根据环境创建不同实例时，我们定义一个创建实例的接口。通过这个接口的参数，去调用不同的构造函数来创建实例并返回。而这个接口就是一个创建对象的工厂，对象都是通过这个工厂创建出来的。</p>
+        <p>当我们想给对象添加些各种的行为时，我们就可以使用装饰者模式了。这个从字面上就很好理解了。比方说我买了一辆低配车（new 出来了一个实例），这个时候呢我想给我这辆车添加一个配置，比方说添加了导航。这个时候我车的价格可能就需要加上我导航配置的钱的。</p>
+<p>用代码来解释一下。</p>
 <a id="more"></a>
-<p>下面举个简单的例子。</p>
-<p>首先我们先创建3个元素类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Image.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Image</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> image = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</div><div class="line">        <span class="keyword">if</span>(option.url)&#123;</div><div class="line">            image.src = option.url;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>._image = image;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._image;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._image);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Link.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Link</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</div><div class="line">        <span class="keyword">if</span>(option.url)&#123;</div><div class="line">            link.href = option.url;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>._link = link;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._link;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._link);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Text.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Text</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> content = option.content || <span class="string">""</span></div><div class="line">        <span class="keyword">let</span> text = <span class="built_in">document</span>.createTextNode(content);</div><div class="line">        <span class="keyword">this</span>._text = text;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._text;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._text);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们再创建一个元素工厂类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ElementFactory.js</span></div><div class="line"><span class="keyword">import</span> Image <span class="keyword">from</span> <span class="string">"./Image.js"</span>;</div><div class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">"./Link.js"</span>;</div><div class="line"><span class="keyword">import</span> Text <span class="keyword">from</span> <span class="string">"./Text.js"</span>;</div><div class="line"><span class="keyword">const</span> ELEMENT = &#123;</div><div class="line">    <span class="string">"image"</span> : Image,</div><div class="line">    <span class="string">"text"</span>  : Text,</div><div class="line">    <span class="string">"link"</span>  : Link</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ElementFactory</span> </span>&#123;</div><div class="line">    createElement(type, option)&#123;</div><div class="line">        <span class="keyword">let</span> ElementConstructor = ELEMENT(type),</div><div class="line">            element = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">if</span>(ElementConstructor)&#123;</div><div class="line">            element = <span class="keyword">new</span> ElementConstructor(option);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> element;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>测试我们的工厂类，创建一个实例text元素并且调用实例的insert方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> ElementFactory <span class="keyword">from</span> <span class="string">"./ElementFactory.js"</span></div><div class="line"><span class="keyword">let</span> elementFactory = <span class="keyword">new</span> ElementFactory();</div><div class="line"><span class="keyword">let</span> text = elementFactory.createElement(<span class="string">"text"</span>, &#123;<span class="attr">content</span>: <span class="string">"http://www.cheneyliu.com"</span>&#125;);</div><div class="line">text.insert(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//BasicCar.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicCar</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(description = '这是一辆低配置') &#123;</div><div class="line">      <span class="keyword">this</span>.description = description;</div><div class="line">    &#125;</div><div class="line">    getDescription() &#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.description;</div><div class="line">    &#125;</div><div class="line">    cost() &#123;</div><div class="line">      <span class="keyword">return</span> <span class="number">30</span>; <span class="comment">//30w的低配车，豪车了，好想来一辆</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//CarWithGPS.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">CarWithGps</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(basicCar)&#123;</div><div class="line">        <span class="keyword">this</span>.basicCar = basicCar;</div><div class="line">    &#125;</div><div class="line">    getDescription()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.basicCar.getDescription() + <span class="string">"，加装了导航系统"</span>;</div><div class="line">    &#125;</div><div class="line">    cost() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.basicCar.cost() + <span class="number">0.8</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//CarWithLed.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">CarWithLed</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(basicCar)&#123;</div><div class="line">        <span class="keyword">this</span>.basicCar = basicCar;</div><div class="line">    &#125;</div><div class="line">    getDescription()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.basicCar.getDescription() + <span class="string">"，加装了LED大灯"</span>;</div><div class="line">    &#125;</div><div class="line">    cost() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.basicCar.cost() + <span class="number">0.5</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> BasicCar <span class="keyword">from</span> <span class="string">"./BasicCar"</span>;</div><div class="line"><span class="keyword">import</span> CarWithGPS <span class="keyword">from</span> <span class="string">"./CarWithGPS"</span>;</div><div class="line"><span class="keyword">import</span> CarWithLed <span class="keyword">from</span> <span class="string">"./CarWithLed"</span>;</div><div class="line"><span class="comment">//买辆低配车</span></div><div class="line"><span class="keyword">let</span> myCar = <span class="keyword">new</span> BasicCar();</div><div class="line"><span class="comment">//加装gps和led大灯</span></div><div class="line">myCar = <span class="keyword">new</span> CarWithGps(myCar);</div><div class="line">myCar = <span class="keyword">new</span> CarWithLed(myCar);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(myCar.getDescription());</div><div class="line"><span class="comment">//这是一辆低配置，加装了导航系统，加装了LED大灯</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"总共花费了我"</span> + myCar.cost() + <span class="string">"万"</span>);</div><div class="line"><span class="comment">//总共花费了我31.3万</span></div></pre></td></tr></table></figure>
+<p>在买这辆车加装配置的时候其实用到的就是装饰者模式。CarWithGps和CarWithLed这两个类就是对我们原有的对象添加功能，修改一些行为。</p>
 
       
     </div>
@@ -205,7 +201,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2016/07/16/ES6设计模式-工厂模式/" data-title="ES6设计模式-工厂模式" data-url="http://www.cheneyliu.com/2016/07/16/ES6设计模式-工厂模式/"></div>
+	 <div class="ds-thread" data-thread-key="/2016/07/10/ES6设计模式-装饰者模式/" data-title="ES6设计模式-装饰者模式" data-url="http://www.cheneyliu.com/2016/07/10/ES6设计模式-装饰者模式/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -234,19 +230,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/23/ES6设计模式-外观模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/16/ES6设计模式-工厂模式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          ES6设计模式-外观模式
+          ES6设计模式-工厂模式
         
       </div>
     </a>
   
   
-    <a href="/2016/07/10/ES6设计模式-装饰者模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/12/ES6设计模式-单例模式/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">ES6设计模式-装饰者模式</div>
+      <div class="article-nav-title">ES6设计模式-单例模式</div>
     </a>
   
 </nav>

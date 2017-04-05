@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>es6设计模式-工厂模式 | 个人博客</title>
+  <title>es6设计模式-代理模式 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="ES6 设计模式 工厂模式" />
+    <meta name="keywords" content="ES6 设计模式 代理模式" />
   
   
     <meta name="google-site-verification" content="google8bd6bcf3c5b1608b.html" />
@@ -15,16 +15,16 @@
     <meta name="baidu-site-verification" content="lzqdLiaeoa" />
   
   
-  <meta name="description" content="ES6设计模式-工厂模式">
+  <meta name="description" content="ES6设计模式-代理模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6设计模式-工厂模式">
-<meta property="og:url" content="http://www.cheneyliu.com/2016/07/16/ES6设计模式-工厂模式/index.html">
+<meta property="og:title" content="ES6设计模式-代理模式">
+<meta property="og:url" content="http://www.cheneyliu.com/2016/08/28/ES6设计模式-代理模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="ES6设计模式-工厂模式">
-<meta property="og:updated_time" content="2017-04-05T09:37:33.000Z">
+<meta property="og:description" content="ES6设计模式-代理模式">
+<meta property="og:updated_time" content="2017-04-05T15:14:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6设计模式-工厂模式">
-<meta name="twitter:description" content="ES6设计模式-工厂模式">
+<meta name="twitter:title" content="ES6设计模式-代理模式">
+<meta name="twitter:description" content="ES6设计模式-代理模式">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-ES6设计模式-工厂模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-ES6设计模式-代理模式" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -157,7 +157,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      ES6设计模式-工厂模式
+      ES6设计模式-代理模式
     </h1>
   
 
@@ -168,7 +168,7 @@
            <i class="fa fa-user"></i><span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次访问
            </span>
            <span class="head-plus">
-           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/07/16/ES6设计模式-工厂模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
+           <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2016/08/28/ES6设计模式-代理模式/"><i class="fa fa-spinner fa-spin"></i></span>条评论
            </span>
          </div>
          
@@ -177,8 +177,8 @@
     
     <div class="article-meta">
       
-	<a href="/2016/07/16/ES6设计模式-工厂模式/" class="article-date">
-	  <time datetime="2016-07-16T12:14:23.000Z" itemprop="datePublished">2016-07-16</time>
+	<a href="/2016/08/28/ES6设计模式-代理模式/" class="article-date">
+	  <time datetime="2016-08-28T14:34:11.000Z" itemprop="datePublished">2016-08-28</time>
 	</a>
 
       
@@ -187,15 +187,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>工厂模式，就是在遇到需要根据环境创建不同实例时，我们定义一个创建实例的接口。通过这个接口的参数，去调用不同的构造函数来创建实例并返回。而这个接口就是一个创建对象的工厂，对象都是通过这个工厂创建出来的。</p>
+        <p>代理模式也比较好理解。比方说我想去图书馆找本书，但是我又不知道图书馆在哪里，有哪些图书馆。这时候呢我找了一个中介，他说只要告诉他我要什么书，他去图书馆帮我借，而且还是免费提供服务。这个中介就是一个代理。</p>
+<p>就是代理那有些资源，或者提供跑腿服务，你直接让代理帮你去做事情。比方酒店提供机票预订服务，可以帮顾客预订机票。这也是代理。</p>
 <a id="more"></a>
-<p>下面举个简单的例子。</p>
-<p>首先我们先创建3个元素类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Image.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Image</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> image = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</div><div class="line">        <span class="keyword">if</span>(option.url)&#123;</div><div class="line">            image.src = option.url;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>._image = image;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._image;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._image);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Link.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Link</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> link = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);</div><div class="line">        <span class="keyword">if</span>(option.url)&#123;</div><div class="line">            link.href = option.url;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>._link = link;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._link;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._link);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Text.js</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Text</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(option)&#123;</div><div class="line">        <span class="keyword">let</span> content = option.content || <span class="string">""</span></div><div class="line">        <span class="keyword">let</span> text = <span class="built_in">document</span>.createTextNode(content);</div><div class="line">        <span class="keyword">this</span>._text = text;</div><div class="line">    &#125;</div><div class="line">    getDom()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._text;</div><div class="line">    &#125;</div><div class="line">    insert(dom)&#123;</div><div class="line">        dom.appendChild(<span class="keyword">this</span>._text);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们再创建一个元素工厂类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ElementFactory.js</span></div><div class="line"><span class="keyword">import</span> Image <span class="keyword">from</span> <span class="string">"./Image.js"</span>;</div><div class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">"./Link.js"</span>;</div><div class="line"><span class="keyword">import</span> Text <span class="keyword">from</span> <span class="string">"./Text.js"</span>;</div><div class="line"><span class="keyword">const</span> ELEMENT = &#123;</div><div class="line">    <span class="string">"image"</span> : Image,</div><div class="line">    <span class="string">"text"</span>  : Text,</div><div class="line">    <span class="string">"link"</span>  : Link</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">ElementFactory</span> </span>&#123;</div><div class="line">    createElement(type, option)&#123;</div><div class="line">        <span class="keyword">let</span> ElementConstructor = ELEMENT(type),</div><div class="line">            element = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">if</span>(ElementConstructor)&#123;</div><div class="line">            element = <span class="keyword">new</span> ElementConstructor(option);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> element;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>测试我们的工厂类，创建一个实例text元素并且调用实例的insert方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> ElementFactory <span class="keyword">from</span> <span class="string">"./ElementFactory.js"</span></div><div class="line"><span class="keyword">let</span> elementFactory = <span class="keyword">new</span> ElementFactory();</div><div class="line"><span class="keyword">let</span> text = elementFactory.createElement(<span class="string">"text"</span>, &#123;<span class="attr">content</span>: <span class="string">"http://www.cheneyliu.com"</span>&#125;);</div><div class="line">text.insert(<span class="built_in">document</span>.body);</div></pre></td></tr></table></figure>
+<p>下面我们用代码来实现一下图书馆找书代理模式实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Book类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(title, author)&#123;</div><div class="line">        <span class="keyword">this</span>.title = title;</div><div class="line">        <span class="keyword">this</span>.author = author;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//公共图书馆类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublicLibrary</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(books)&#123;</div><div class="line">        <span class="keyword">this</span>.books = books;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//查找书籍</span></div><div class="line">    findBook(book)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.books.find(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</div><div class="line">            <span class="keyword">return</span> (item.title === book.title &amp;&amp; item.author === book.author)</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//公共图书馆代理</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublicLibraryProxy</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(books)&#123;</div><div class="line">        <span class="comment">//代理了一个图书馆</span></div><div class="line">        <span class="keyword">this</span>.library = <span class="keyword">new</span> PublicLibrary(books);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//查找书籍</span></div><div class="line">    findBook(book)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.library.findBook(book);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> book1 = <span class="keyword">new</span> Book(<span class="string">"人人都是产品经理"</span>,<span class="string">"苏杰"</span>);</div><div class="line"><span class="keyword">let</span> book2 = <span class="keyword">new</span> Book(<span class="string">"深入浅出Node.js"</span>,<span class="string">"朴灵"</span>);</div><div class="line"><span class="keyword">let</span> oProxyLibrary = <span class="keyword">new</span> PublicLibraryProxy([book1,book2]);</div><div class="line"><span class="built_in">console</span>.log(oProxyLibrary.findBook(book1).title);</div><div class="line"><span class="comment">//输出 人人都是产品经理</span></div></pre></td></tr></table></figure>
+<p>代理模式常用于控制一些真实对象访问时的权限，一般用于对象应该有不同的访问权限。可以认为是某个对象的监护人。</p>
 
       
     </div>
@@ -205,7 +202,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2016/07/16/ES6设计模式-工厂模式/" data-title="ES6设计模式-工厂模式" data-url="http://www.cheneyliu.com/2016/07/16/ES6设计模式-工厂模式/"></div>
+	 <div class="ds-thread" data-thread-key="/2016/08/28/ES6设计模式-代理模式/" data-title="ES6设计模式-代理模式" data-url="http://www.cheneyliu.com/2016/08/28/ES6设计模式-代理模式/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -234,19 +231,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/23/ES6设计模式-外观模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/08/JavaScript如何构建对象/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          ES6设计模式-外观模式
+          JavaScript如何构建对象
         
       </div>
     </a>
   
   
-    <a href="/2016/07/10/ES6设计模式-装饰者模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/08/09/ES6设计模式-观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">ES6设计模式-装饰者模式</div>
+      <div class="article-nav-title">ES6设计模式-观察者模式</div>
     </a>
   
 </nav>
