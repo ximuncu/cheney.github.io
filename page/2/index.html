@@ -166,6 +166,57 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-ES6设计模式-工厂模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/06/22/ES6设计模式-工厂模式/">ES6设计模式-工厂模式</a>
+    </h1>
+  
+
+
+        
+         
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/06/22/ES6设计模式-工厂模式/" class="article-date">
+	  <time datetime="2016-06-22T12:14:23.000Z" itemprop="datePublished">2016-06-22</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>工厂模式，就是在遇到需要根据环境创建不同实例时，我们定义一个创建实例的接口。通过这个接口的参数，去调用不同的构造函数来创建实例并返回。而这个接口就是一个创建对象的工厂，对象都是通过这个工厂创建出来的。</p>
+        <!-- 工厂模式，就是在遇到需要根据环境创...... -->
+        <p class="article-more-link">
+          <a href="/2016/06/22/ES6设计模式-工厂模式/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-ES6设计模式-单例模式"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -628,60 +679,6 @@
         <!-- 最近想整理一下js执行代码的一些知...... -->
         <p class="article-more-link">
           <a href="/2015/08/02/javascript作用域链/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-javascript原型和原型链"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2015/07/29/javascript原型和原型链/">javascript原型和原型链</a>
-    </h1>
-  
-
-
-        
-         
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2015/07/29/javascript原型和原型链/" class="article-date">
-	  <time datetime="2015-07-29T15:12:27.000Z" itemprop="datePublished">2015-07-29</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/web/">web</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近几天，好些新同事来问原型，原型链啥的。本身作为菜鸟的我好像也没有好好整理过这个，这里写写自己的理解。</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>大家都知道，JavaScript 不包含传统的类继承模型，而是使用 prototype 原型模型。代码实现大概是这样子的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Kimy = <span class="keyword">new</span> Student(<span class="string">"Kimy"</span>);</div><div class="line"></div><div class="line">Student.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"say"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Kimy.say();</div><div class="line"><span class="comment">//Kimysay</span></div></pre></td></tr></table></figure>
-<p>Kimy本身是没有say方法的，当他在自己对象中找不到该方法时就回去他的原型中查找，也就是Student.prototype对象中查找。这里我们用到了一个构造函数Student</p>
-        <!-- 最近几天，好些新同事来问原型，原型...... -->
-        <p class="article-more-link">
-          <a href="/2015/07/29/javascript原型和原型链/#more">阅读全文</a>
         </p>
       
     </div>
